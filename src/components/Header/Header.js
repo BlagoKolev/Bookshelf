@@ -1,0 +1,21 @@
+import style from './Header.module.css';
+import { Route, Link } from 'react-router-dom';
+
+function Header() {
+    return (
+        <header className={style.header}>
+            <p className={style.headerLogo}>BookShelf</p>
+            <nav className={style.headerNav}>
+                <ul className={style.headerNavUl}>
+                    <li className={style.headerNavElement}><a >Upload book</a></li>
+                    <li className={style.headerNavElement}><a >Archive</a></li>
+                    <li className={style.headerNavElement}><a >Login</a></li>
+                    <li className={style.headerNavElement}><a >Register</a></li>
+                    <li className={style.headerNavElement}><a>Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+    )
+}
+
+export default Header;

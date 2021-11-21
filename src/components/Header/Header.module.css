@@ -1,0 +1,39 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    background-color: #333333;
+    color: white;
+}
+
+.headerLogo {
+    margin-left: 50px;
+    font-size: 20px;
+    font-style: italic;
+   
+}
+
+.headerLogo:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.headerNav {
+    margin-right: 50px;
+}
+
+.headerNavUl {
+    display: flex;
+}
+
+.headerNavElement {
+    text-decoration: none;
+    list-style-type: none;
+    margin-right: 25px;
+}
+
+.headerNavElement:hover {
+    text-decoration: underline;
+    color: darkgoldenrod;
+    cursor: pointer;
+}
