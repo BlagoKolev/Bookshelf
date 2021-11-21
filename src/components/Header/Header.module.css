@@ -10,7 +10,9 @@
     margin-left: 50px;
     font-size: 20px;
     font-style: italic;
-   
+    color: white;
+    text-decoration: none;
+    
 }
 
 .headerLogo:hover {

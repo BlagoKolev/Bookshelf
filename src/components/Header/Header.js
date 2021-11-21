@@ -4,7 +4,7 @@ import { Route, Link } from 'react-router-dom';
 function Header() {
     return (
         <header className={style.header}>
-            <p className={style.headerLogo}>BookShelf</p>
+            <Link to="/" className={style.headerLogo}>BookShelf</Link>
             <nav className={style.headerNav}>
                 <ul className={style.headerNavUl}>
                     <li className={style.headerNavElement}><a >Upload book</a></li>
