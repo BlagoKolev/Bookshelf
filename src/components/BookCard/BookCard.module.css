@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+}
+
+.imageContainer {
+    width: 100%;  
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.image {
+    width: 100%;
+}
+
+.detailsBtn {
+    width: 50%;
+}
