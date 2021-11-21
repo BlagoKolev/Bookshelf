@@ -1,0 +1,11 @@
+.categoryTitle {
+    margin-bottom: 5px;
+    margin-top: 70px;
+    margin-left: 70px;
+    align-self: flex-start;
+}
+
+.categoryTitle:hover {
+   transform: scale(1.5);
+   cursor: pointer;
+}
