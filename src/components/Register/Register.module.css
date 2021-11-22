@@ -1,0 +1,56 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
+
+.loginContainer {
+    background-image: url('https://images.unsplash.com/photo-1527176930608-09cb256ab504?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8&w=1000&q=80');
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    max-height: 510px;
+    width: 100%;
+    align-items: flex-start;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 100px;
+    max-height: 40%;
+    padding: 100px 50px;
+    background-color: #333333;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.input {
+    margin-bottom: 25px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid #DEE4E2;
+    background-color: #333333;
+    color: white;
+}
+
+.label {
+    display: flex;
+    align-items: baseline;
+}
+
+.button {
+   background-color: #E3E3E4;
+   padding: 10px 30px;
+   margin-top: 10px;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: springgreen;
+}
+
+.loginTitle {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 50px;
+}

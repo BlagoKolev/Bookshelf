@@ -9,3 +9,14 @@
 .footerLogo {
     margin-right: 50px;
 }
+
+.footerLogoLink {
+    text-decoration: none;
+    color: white;
+}
+
+.footerLogoLink:hover {
+    text-decoration: underline;
+    color: darkgoldenrod;
+    cursor: pointer;
+}
