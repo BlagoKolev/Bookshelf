@@ -12,7 +12,6 @@
     font-style: italic;
     color: white;
     text-decoration: none;
-    
 }
 
 .headerLogo:hover {
@@ -34,8 +33,13 @@
     margin-right: 25px;
 }
 
-.headerNavElement:hover {
+.headerNavLink:hover {
     text-decoration: underline;
     color: darkgoldenrod;
     cursor: pointer;
+}
+
+.headerNavLink {
+    text-decoration: none;
+    color: white;
 }
