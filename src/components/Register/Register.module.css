@@ -1,6 +1,6 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
 
-.loginContainer {
+.registerContainer {
     background-image: url('https://images.unsplash.com/photo-1527176930608-09cb256ab504?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8&w=1000&q=80');
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@
     background-position: center;
 }
 
-.login {
+.register {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
@@ -49,7 +49,7 @@
     background-color: springgreen;
 }
 
-.loginTitle {
+.registerTitle {
     color: white;
     margin-top: 0;
     margin-bottom: 50px;

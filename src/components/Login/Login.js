@@ -3,18 +3,18 @@ import style from './Login.module.css';
 function Login() {
     return (
         <div className={style.loginContainer}>
-            <div className={style.login}>
+            <form className={style.login}>
                 <h2 className={style.loginTitle}>Login to your account</h2>
                 <label className={style.label}>
-                    <i style={{ color: "white", marginRight: 10 }} class="fas fa-user login-icon" ></i>
-                    <input type="text" className={style.input} placeholder="Type your E-mail" autoFocus />
+                    <i style={{ color: "white", marginRight: 10 }} className="fas fa-user login-icon" ></i>
+                    <input type="text" name="email" id="email" className={style.input} placeholder="Type your E-mail" autoFocus />
                 </label>
                 <label className={style.label}>
-                    <i style={{ color: "white", marginRight: 10 }} class="fas fa-key login-icon" ></i>
-                    <input type="password" className={style.input} placeholder="Type your Password" />
+                    <i style={{ color: "white", marginRight: 10 }} className="fas fa-key login-icon" ></i>
+                    <input name="password" id="password" type="password" className={style.input} placeholder="Type your Password" />
                 </label>
-                <button className={style.button}>Login</button>
-            </div>
+                <input type="submit" value="Login" className={style.button}></input>
+            </form>
         </div>
     )
 }
