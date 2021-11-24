@@ -1,27 +1,42 @@
 import style from './Home.module.css';
 import Category from '../Category/Category.js';
 import CategoryTitle from '../Category/CategoryTitle.js';
-
+import { useState, useEffect } from 'react';
+//import * as BooksService from '../../services/bookServices.js'
+import { db } from '../../firebase-config.js'
+import { collection, getDocs } from 'firebase/firestore';
 function Home() {
+
+    let [books, setBooks] = useState([]);
+    let booksRef = collection(db, 'Books');
+
+    useEffect(() => {
+        const getBooks = async () => {
+            let data = await getDocs(booksRef);
+            setBooks(data.docs.map(x => ({ ...x.data(), id: x.id })));
+        };
+        getBooks();
+    }, [])
+
     return (
         <section className={style.section}>
-        <CategoryTitle>Action and Adventure</CategoryTitle>
-        <Category />
-        <CategoryTitle>Classics</CategoryTitle>
-        <Category />
-        <CategoryTitle>Comic Book or Graphic Novel</CategoryTitle>
-        <Category />
-        <CategoryTitle>Detective and Mystery</CategoryTitle>
-        <Category />
-        <CategoryTitle>Fantasy</CategoryTitle>
-        <Category />
-        <CategoryTitle>Science</CategoryTitle>
-        <Category />
-        <CategoryTitle>Horror</CategoryTitle>
-        <Category />
-        <CategoryTitle>Literary Fiction</CategoryTitle>
-        <Category />
-    </section>
+            <CategoryTitle>Action and Adventure</CategoryTitle>
+            <Category books={books.filter(x => x.genre == 'Action and Adventure').slice(0, 5)} />
+            <CategoryTitle>Classics</CategoryTitle>
+            <Category books={books.filter(x => x.genre == 'Classics').slice(0, 5)} />
+            <CategoryTitle>Comic Book or Graphic Novel</CategoryTitle>
+            <Category books={books.filter(x => x.genre == 'Comic Book or Graphic Novel').slice(0, 5)} />
+            <CategoryTitle>Detective and Mystery</CategoryTitle>
+            <Category books={books.filter(x => x.genre == 'Detective and Mystery').slice(0, 5)} />
+            <CategoryTitle>Fantasy</CategoryTitle>
+            <Category books={books.filter(x => x.genre == 'Fantasy').slice(0, 5)} />
+            <CategoryTitle>Science</CategoryTitle>
+            <Category books={books.filter(x => x.genre == 'Science').slice(0, 5)} />
+            <CategoryTitle>Horror</CategoryTitle>
+            <Category books={books.filter(x => x.genre == 'Horror').slice(0, 5)} />
+            <CategoryTitle>Literary Fiction</CategoryTitle>
+            <Category books={books.filter(x => x.genre == 'Literary Fiction').slice(0, 5)} />
+        </section>
     )
 }
 

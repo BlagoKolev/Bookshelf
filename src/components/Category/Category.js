@@ -1,14 +1,12 @@
 import BookCard from '../BookCard/BookCard.js'
 import style from './Category.module.css';
 
-function Category() {
+function Category({books}) {
+
+  console.log({books})
     return (
         <article className={style.category}>
-            <BookCard />
-            <BookCard />
-            <BookCard />
-            <BookCard />
-            <BookCard />
+           { {books}.books.map(x => <BookCard title={x.title} /> )}
         </article>
     )
 }
