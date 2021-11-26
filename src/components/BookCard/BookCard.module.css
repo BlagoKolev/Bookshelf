@@ -9,9 +9,10 @@
 }
 
 .imageContainer {
-    width: 100%;  
+    width: 60%;  
+    height: 60%;
     display: flex;
-    margin-bottom: 20px;
+    
 }
 
 .image {
