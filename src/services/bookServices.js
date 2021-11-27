@@ -1,7 +1,5 @@
 import { db } from '../firebase-config.js'
 import { collection, getDocs } from 'firebase/firestore';
-import { useEffect, useState } from 'react';
-
 
 export function GetBooksByGenre(genre) {
 
@@ -19,3 +17,21 @@ export function GetBooksByGenre(genre) {
     getBooks(genre);
     //}, [])
 }
+
+export function GetBookById(id) {
+    console.log('service')
+    let booksRef = collection(db, 'Books');
+          let getBook = async () => {
+            let data = await getDocs(booksRef);
+           return (data.docs.map(x => ({ ...x.data(), id: x.id })).filter(x=> x.id == id));
+           console.log(data);
+           return data;
+        };   
+        getBook();
+}
+
+// export function GetBookById(id) {
+//     fetch('https://bookshelf-3c638.firebaseapp.com/Books/json')
+//     .then(resp => resp.json())
+//     .then(resp => console.log(resp))
+// }

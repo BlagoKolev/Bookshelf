@@ -1,0 +1,45 @@
+.details {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.detailsContainer {
+    display: flex;
+    min-height: 510px;
+    margin: 100px 200px;
+    width: 100%;
+}
+
+.imageContainer {
+    max-width: 30%;
+    min-width: 300px;
+}
+
+.image {
+    width: 100%;
+}
+
+.infoContainer {
+    margin-left: 100px;
+}
+
+.downloadBtn {
+   min-width: 7%;
+   max-width: 9%;
+   align-self: center;
+   margin-bottom: 50px;
+   padding: 20px;
+}
+
+.downloadBtn:hover {
+    cursor: pointer;
+    background-color: limegreen;
+    color: white;
+}
+
+.span {
+    font-weight: bolder;
+    font-style: italic;
+    color: maroon;
+}

@@ -19,6 +19,23 @@
     width: 100%;
 }
 
+.image:hover {
+    transform: scale(1.5);
+}
+
+
 .detailsBtn {
     width: 50%;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    padding-bottom: 3px;
+    border-radius: 15px;
+}
+
+.detailsBtn:hover {
+    cursor: pointer;
+    background-color: limegreen;
+    color: white;
+    border: 1px solid limegreen;
 }

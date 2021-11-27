@@ -6,7 +6,7 @@ function Category({books}) {
   console.log({books})
     return (
         <article className={style.category}>
-           { {books}.books.map(x => <BookCard title={x.title} image={x.image} /> )}
+           { {books}.books.map(x => <BookCard key={x.id} details={x} /> )}
         </article>
     )
 }
