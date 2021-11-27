@@ -29,13 +29,13 @@ function BookDetails({ match }) {
                 <div className={style.imageContainer}> <img className={style.image} src={book.image} /> </div>
                 <div className={style.infoContainer}>
                     <div className={style.author}>
-                        <h2>Author: <span className={style.span}>{book.author}</span></h2>
+                        <h2 className={style.text}>Author: <span className={style.span}>{book.author}</span></h2>
                     </div>
                     <div className={style.title}>
-                        <h2>Title: <span className={style.span}>{book.title}</span></h2>
+                        <h2 className={style.text}>Title: <span className={style.span}>{book.title}</span></h2>
                     </div>
                     <div className={style.rewiew}>
-                        <h3>Review:</h3> <span className={style.span}>{book.review}</span>
+                        <h3 className={style.text}>Review:</h3> <span className={style.span}>{book.review}</span>
                     </div>
                 </div>
             </div>

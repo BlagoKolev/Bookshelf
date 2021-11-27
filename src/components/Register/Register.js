@@ -1,38 +1,76 @@
 import style from './Register.module.css';
+import { useEffect, useState } from 'react';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebase-config.js'
+import { Redirect } from 'react-router';
 
-function Register() {
 
-    function onRegister(e) {
-       e.preventDefault();
-       let formData = new FormData(e.currentTarget);
-       console.log(formData.get('email'))
-    }
+function Register({history}) {
 
+    let [user, setUser] = useState(null);
+    let [registerEmail, setRegisterEmail] = useState("");
+    let [registerPassword, setRegisterPassword] = useState("");
+    let [registerConfPassword, setRegisterConfPassword] = useState("");
+
+    // function onRegister(e) {
+    //     e.preventDefault();
+    //     let formData = new FormData(e.currentTarget);
+    //     console.log(formData.get('email'))
+    // }
+
+    const onRegister = async (e) => {
+        e.preventDefault();
+        if (registerPassword != registerConfPassword) {
+            alert('Fields Password and ConfirmPassword must be the same');
+        } else {
+            try {
+                const user = await createUserWithEmailAndPassword(auth,
+                    registerEmail,
+                    registerPassword);
+                  history.push("/")
+                console.log(user)
+            } catch (error) {
+                console.log(error.message);
+            }
+        }
+    };
+   
+   // console.log(auth.currentUser.email)
     return (
         <div className={style.registerContainer}>
-            <form className={style.register} onSubmit={onRegister}>
+
+            <form className={style.register} onSubmit={onRegister} >
                 <h2 className={style.registerTitle}>Create new account</h2>
 
                 <label className={style.label}>
-                    <i style={{ color: "white", marginRight: 10 }} className="far fa-envelope login-icon" ></i>
-                    <input name="email" id="email" type="text" className={style.input} placeholder="Type your E-mail" autoFocus />
+                    <i style={{ color: "white", marginRight: 10 }} className="far fa-envelope login-icon" >
+                    </i>
+                    <input name="email" id="email" type="text"
+                        className={style.input}
+                        placeholder="Type your E-mail"
+                        autoFocus
+                        onChange={(e) => { setRegisterEmail(e.target.value); }} />
                 </label>
 
                 <label className={style.label}>
-                    <i style={{ color: "white", marginRight: 10 }} className="fas fa-user login-icon" ></i>
-                    <input name="username" id="username" type="text" className={style.input} placeholder="Type your Username" />
+                    <i style={{ color: "white", marginRight: 10 }} className="fas fa-key login-icon" >
+                    </i>
+                    <input name="password" id="password" type="password"
+                        className={style.input}
+                        placeholder="Type your Password"
+                        onChange={(e) => { setRegisterPassword(e.target.value); }} />
                 </label>
 
                 <label className={style.label}>
-                    <i style={{ color: "white", marginRight: 10 }} className="fas fa-key login-icon" ></i>
-                    <input name="password" id="password" type="password" className={style.input} placeholder="Type your Password" />
+                    <i style={{ color: "white", marginRight: 10 }} className="fas fa-key login-icon" >
+                    </i>
+                    <input name="confirmPassword" id="confirmPassword" type="password" className={style.input}
+                        placeholder="Repeat your Password"
+                        onChange={(e) => { setRegisterConfPassword(e.target.value); }} />
                 </label>
 
-                <label className={style.label}>
-                    <i style={{ color: "white", marginRight: 10 }} className="fas fa-key login-icon" ></i>
-                    <input  name="confirmPassword" id="confirmPassword" type="password" className={style.input} placeholder="Repeat your Password" />
-                </label>
                 <input type="submit" value="Register" className={style.button}></input>
+                {/* <p>Now logged user is: {auth.currentUser.email}</p> */}
             </form>
         </div>
     )

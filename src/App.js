@@ -1,35 +1,28 @@
 import './App.css';
-import Header from './components/Header/Header.js'
-import Footer from './components/Footer/Footer.js'
-import Main from './components/Main/Main.js'
-
+import Header from './components/Header/Header.js';
+import Footer from './components/Footer/Footer.js';
+import Main from './components/Main/Main.js';
+import { auth } from './firebase-config.js'
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+//import { onAuthStateChanged } from 'firebase/auth;'
 // import reportWebVitals from './reportWebVitals';
 // import { db } from './firebase-config.js'
 // import { collection, getDocs } from 'firebase/firestore';
-// import { useEffect, useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import userEvent from '@testing-library/user-event';
 
 function App() {
 
-  // let [books, setBooks] = useState([]);
-  // let booksRef = collection(db, 'Books');
+  const [user, setUser] = useState({});
 
-
-  // useEffect(() => {
-  //   const getBooks = async () => {
-  //     let data = await getDocs(booksRef);
-  //     console.log(data.docs[0])
-  //     setBooks(data.docs.map( x=> ({...x.data(), id: x.id})));
-  //     //let response = (data.docs.map( x=> ({...x.data(), id: x.id})));
-  //    // console.log(response)
-  //   };
-  //   getBooks();
-  // }, [])
+  useEffect(() => {
+    auth.onAuthStateChanged(setUser)
+  }, []);
 
   return (
     <div className="App">
-      {/* {books.map((book) => book.genre == 'Fantasy' ? <h2>{book.title}</h2> : <h2></h2>)} */}
-      <Header />
+      <h2>User: {user?.email}</h2>
+      <Header username={user.email} isAuthenticated={Boolean(user)}/>
       <Main />
       <Footer />
     </div>

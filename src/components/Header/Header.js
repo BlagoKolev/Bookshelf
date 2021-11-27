@@ -1,7 +1,7 @@
 import style from './Header.module.css';
 import { Route, Link } from 'react-router-dom';
 
-function Header() {
+function Header({ username, isAuthenticated }) {
     return (
         <header className={style.header}>
             <Link to="/" className={style.headerLogo}>BookShelf</Link>
