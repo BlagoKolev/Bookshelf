@@ -2,10 +2,8 @@ import style from './Register.module.css';
 import { useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase-config.js'
-import { Redirect } from 'react-router';
 
-
-function Register({history}) {
+function Register({ history }) {
 
     let [user, setUser] = useState(null);
     let [registerEmail, setRegisterEmail] = useState("");
@@ -27,15 +25,13 @@ function Register({history}) {
                 const user = await createUserWithEmailAndPassword(auth,
                     registerEmail,
                     registerPassword);
-                  history.push("/")
-                console.log(user)
+                history.push("/")
             } catch (error) {
                 console.log(error.message);
             }
         }
     };
-   
-   // console.log(auth.currentUser.email)
+
     return (
         <div className={style.registerContainer}>
 

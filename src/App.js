@@ -21,8 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <h2>User: {user?.email}</h2>
-      <Header username={user.email} isAuthenticated={Boolean(user)}/>
+      <Header username={user?.email} isAuthenticated={Boolean(user)} />
       <Main />
       <Footer />
     </div>
