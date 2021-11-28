@@ -11,6 +11,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import userEvent from '@testing-library/user-event';
 
+
 function App() {
 
   const [user, setUser] = useState({});
@@ -18,7 +19,7 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged(setUser)
   }, []);
-
+  
   return (
     <div className="App">
       <Header username={user?.email} isAuthenticated={Boolean(user)} />

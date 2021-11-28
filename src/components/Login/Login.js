@@ -2,22 +2,38 @@ import style from './Login.module.css';
 import { useState } from 'react';
 import { auth } from '../../firebase-config.js';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login({ history }) {
 
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
 
+    toast.configure();
+
+    const onSuccessLoginNotify = () => toast.success("Successfully logged !",{
+        position: toast.POSITION.TOP_CENTER
+      });
+
+      const onErrorLoginNotify = () => toast.error("Wrong username or password !",{
+        position: toast.POSITION.TOP_CENTER
+      });
+
     const onLogin = async (e) => {
+
         e.preventDefault();
+
         try {
             let user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
             history.push("/");
+            onSuccessLoginNotify();
         } catch (error) {
-            alert(error.message);
+            onErrorLoginNotify();
         }
-    }
+    };
 
+    
     return (
         <div className={style.loginContainer}>
             <form className={style.login} onSubmit={onLogin}>

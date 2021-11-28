@@ -2,6 +2,8 @@ import style from './Register.module.css';
 import { useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase-config.js'
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Register({ history }) {
 
@@ -16,19 +18,32 @@ function Register({ history }) {
     //     console.log(formData.get('email'))
     // }
 
+    const registrationSuccessNotify = () => {
+        toast.success("Registration Successfull !", { position: toast.POSITION.TOP_CENTER });
+    };
+
+    const passwordsMatchNotify = () => {
+        toast.warning("Password and ConfirmPassword must be the same !", { position: toast.POSITION.TOP_CENTER });
+    };
+
     const onRegister = async (e) => {
+
         e.preventDefault();
+
         if (registerPassword != registerConfPassword) {
-            alert('Fields Password and ConfirmPassword must be the same');
+            passwordsMatchNotify();
         } else {
+
             try {
                 const user = await createUserWithEmailAndPassword(auth,
                     registerEmail,
                     registerPassword);
                 history.push("/")
+                registrationSuccessNotify();
             } catch (error) {
                 console.log(error.message);
             }
+
         }
     };
 
