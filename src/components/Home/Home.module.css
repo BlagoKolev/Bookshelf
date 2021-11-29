@@ -3,3 +3,7 @@
     flex-direction: column;
     background-color: #E1DCC5;
 }
+
+.categoryLink {
+    text-decoration: none;
+}

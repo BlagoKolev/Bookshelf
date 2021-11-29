@@ -1,0 +1,12 @@
+.category {
+    display: flex;
+    margin:0 50px;
+    justify-content: center;
+    background-color: #F3EDD7;
+    padding: 20px 50px;
+}
+
+.wrapper {
+    background-color: #E1DCC5;
+    display: flex;
+}

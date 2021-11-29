@@ -45,7 +45,7 @@ function Header({ username, isAuthenticated }) {
 
                     {isAuthenticated &&
                         <li className={style.headerNavElement}>
-                            <Link to="/register" className={style.headerNavLink}>My Books</Link>
+                            <Link to="/myBooks" className={style.headerNavLink}>My Books</Link>
                         </li>}
 
                     {isAuthenticated &&

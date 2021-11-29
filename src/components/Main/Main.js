@@ -5,6 +5,7 @@ import Login from '../Login/Login.js';
 import Register from '../Register/Register.js';
 import BookDetails from '../BookDetails/BookDetails.js'
 import BookCard from '../BookCard/BookCard';
+import ActionAndAdventure from '../Genres/ActionAndAdventure';
 
 function Main() {
     return (
@@ -13,6 +14,8 @@ function Main() {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/bookDetails/:id" component={BookDetails} />
+            <Route path="/actionAndAdventure" component={ActionAndAdventure} />
+            {/* <Route path="myBooks" component={MyBooks} /> */}
         </div>
     )
 }

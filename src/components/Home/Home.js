@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 //import * as BooksService from '../../services/bookServices.js'
 import { db } from '../../firebase-config.js'
 import { collection, getDocs } from 'firebase/firestore';
+import { Link, Route } from 'react-router-dom';
+
 function Home() {
 
     let [books, setBooks] = useState([]);
@@ -20,7 +22,7 @@ function Home() {
 
     return (
         <section className={style.section}>
-            <CategoryTitle>Action and Adventure</CategoryTitle>
+            <CategoryTitle><Link to="/actionAndAdventure" className={style.categoryLink}>Action and Adventure</Link></CategoryTitle>
             <Category books={books.filter(x => x.genre == 'Action and Adventure').slice(0, 5)} />
             <CategoryTitle>Classics</CategoryTitle>
             <Category books={books.filter(x => x.genre == 'Classics').slice(0, 5)} />
