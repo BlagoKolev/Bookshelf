@@ -1,4 +1,5 @@
 .main {
     display: flex;
-    
+    min-height: 510px;
+    min-width: 1349px;
 }

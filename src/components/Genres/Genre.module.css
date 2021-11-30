@@ -4,9 +4,13 @@
     justify-content: center;
     background-color: #F3EDD7;
     padding: 20px 50px;
+    flex-wrap: wrap;
+    width: 80%;
 }
 
 .wrapper {
     background-color: #E1DCC5;
     display: flex;
+    min-width: 1349px;
+    justify-content: center;
 }
