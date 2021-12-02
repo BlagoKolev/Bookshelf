@@ -4,6 +4,7 @@
     align-items: baseline;
     background-color: #333333;
     color: white;
+    position: relative;
 }
 
 .headerLogo {
@@ -45,3 +46,7 @@
 }
 
 
+.navbar {
+    z-index: 1;
+    position: relative;
+}

@@ -6,6 +6,7 @@ import Register from '../Register/Register.js';
 import BookDetails from '../BookDetails/BookDetails.js'
 import BookCard from '../BookCard/BookCard';
 import Genre from '../Genres/Genre';
+import Search from '../Search/Search';
 
 function Main() {
     return (
@@ -23,7 +24,8 @@ function Main() {
             <Route path="/science" render={(props) => (<Genre passedGenre="Science" {...props} authed={true} />)} />
             <Route path="/horror" render={(props) => (<Genre passedGenre="Horror" {...props} authed={true} />)} />
             <Route path="/literaryFiction" render={(props) => (<Genre passedGenre="Literary Fiction" {...props} authed={true} />)} />
-
+            {/* <Route  path="/search" component={Search}/> */}
+            <Route path="/search" render={(props) => (<Search {...props} auther={true} />)} />
         </div>
     )
 }

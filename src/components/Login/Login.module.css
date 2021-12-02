@@ -1,3 +1,5 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
+
 .loginContainer {
     background-image: url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlZCUyMGJvb2tzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80');
     display: flex;
@@ -8,7 +10,6 @@
     align-items: flex-start;
     
 }
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
 
 .login {
     display: flex;

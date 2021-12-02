@@ -1,0 +1,61 @@
+.searchBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.searchField {
+    margin-right: 10px;
+}
+
+.searchLink > i {
+    text-decoration: none;
+    color: white;
+}
+
+.searchBar .searchLink > i:hover  {
+    color: red;
+    cursor: pointer;
+}
+
+.dataResult {
+    margin-top: 5px;
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 1;
+    position: relative;
+}
+
+.dataResult::-webkit-scrollbar{
+    display: none;
+}
+
+.dataResult {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+.dataItem {
+    margin: 4px;
+    color: slategray;
+    width: 100%;
+}
+
+.dataItem:hover {
+    background-color: #333333;
+    color: white;
+    cursor: pointer;
+}
+
+.headerSearchLink {
+    text-decoration: none;
+}

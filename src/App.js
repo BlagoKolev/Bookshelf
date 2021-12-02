@@ -22,7 +22,7 @@ function App() {
   
   return (
     <div className="App">
-      <Header username={user?.email} isAuthenticated={Boolean(user)} />
+      <Header username={user?.email} isAuthenticated={Boolean(user)} style={{position:"relative"}} />
       <Main />
       <Footer />
     </div>

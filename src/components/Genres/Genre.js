@@ -8,16 +8,9 @@ function ActionAndAdventure({passedGenre}) {
 
     const [books, setBooks] = useState([]);
     const bookRef = collection(db, "Books");
-   // const [genre, setGenre] = useState("");
+   
     console.log([passedGenre])
-    // useEffect(() => {
-    //     const getBooks = async () => {
-    //         let data = await getDocs(bookRef);
-    //         setBooks(data.docs.map(x => ({ ...x.data(), id: x.id })).filter(x => x.genre == 'Action and Adventure'));
-    //     }
-    //     getBooks();
-    // }, []);
-
+ 
     useEffect(() => {
         const getBooks = async () => {
             let data = await getDocs(bookRef);
