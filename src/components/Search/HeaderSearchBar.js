@@ -24,6 +24,7 @@ function HeaderSearchBar() {
             <div className={style.searchFieldContainer}>
                 <input type="text"
                     className={style.searchField}
+                    value={searchWord}
                     onChange={(e) => { setSearchWord(e.target.value); }}
                     placeholder="...search by book title" />
                 <Link to={{ pathname: "/search", state: { searchWord } }}
@@ -38,10 +39,7 @@ function HeaderSearchBar() {
                         return (
                             <Link to={`/bookDetails/${x.id}`} details={x}
                                 className={style.headerSearchLink}
-                                onClick={(e) => {
-                                    e.target.parentElement.parentElement.parentElement.firstChild.firstChild.value = "";
-                                    setSearchWord("")
-                                }}>
+                                onClick={(e) => {setSearchWord("")}}>
                                 <p className={style.dataItem}>{x.title}</p>
                             </Link>
                         )
