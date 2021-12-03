@@ -1,1 +1,36 @@
+.uploadContainer {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    /* margin-top: 20px; */
+    margin-left: 50px;
+}
 
+.form {
+    display: flex;
+    flex-direction: column;
+   
+    
+}
+
+.label {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.input {
+    width: 70%;
+   
+}
+
+.fileField {
+    align-self:flex-end;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.uploadBtn {
+    width: 100px;
+    align-self: center;
+}
