@@ -50,7 +50,7 @@ function Header({ username, isAuthenticated }) {
 
                     {isAuthenticated &&
                         <li className={style.headerNavElement}>
-                            <a >Upload Book</a>
+                            <Link to="/uploadFile" className={style.headerNavLink}>Upload Book</Link>
                         </li>}
 
                     {!isAuthenticated &&

@@ -1,6 +1,7 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from '@firebase/firestore';
-import { getAuth } from 'firebase/auth';
+import { initializeApp } from "firebase/app";   //Get reference to Firebase
+import { getFirestore } from '@firebase/firestore';   //Get reference to Firebase firestorage (json data storage);
+import { getStorage } from 'firebase/storage';  //Get reference to Firebase file storage;
+import { getAuth } from 'firebase/auth';  //Get reference to Firebase authentication services
 
 const firebaseConfig = {
   apiKey: "AIzaSyApQhIVdgRumWc6zULMsRTZ15OvCJreCd4",
@@ -12,6 +13,7 @@ const firebaseConfig = {
 };
 
 
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-export const auth = getAuth(app);
+const app = initializeApp(firebaseConfig);  //Initialize (register our App to) Firebase;
+export const db = getFirestore(app);   //Initialize out json data DB in Firebase;
+export const auth = getAuth(app);   //Initialize authentication services from Firebase;
+export const storage = getStorage(app);   //Initialize our file storage from Firebase

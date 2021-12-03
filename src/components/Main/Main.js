@@ -7,6 +7,7 @@ import BookDetails from '../BookDetails/BookDetails.js'
 import BookCard from '../BookCard/BookCard';
 import Genre from '../Genres/Genre';
 import Search from '../Search/Search';
+import Upload from '../Upload/Upload.js'
 
 function Main() {
     return (
@@ -26,6 +27,7 @@ function Main() {
             <Route path="/literaryFiction" render={(props) => (<Genre passedGenre="Literary Fiction" {...props} authed={true} />)} />
             {/* <Route  path="/search" component={Search}/> */}
             <Route path="/search" render={(props) => (<Search {...props} auther={true} />)} />
+            <Route path="/uploadFile" component={Upload} />
         </div>
     )
 }
