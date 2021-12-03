@@ -12,7 +12,7 @@ import HeaderSearchBar from '../Search/HeaderSearchBar';
 function Header({ username, isAuthenticated }) {
 
     //const [books, setBooks] = useState([]);
-   // const [searchWord, setSearchWord] = useState([]);
+    // const [searchWord, setSearchWord] = useState([]);
 
     const signOutNotify = () => {
         toast.success("Successfully Signed-out !", { position: toast.POSITION.TOP_CENTER });
@@ -36,21 +36,9 @@ function Header({ username, isAuthenticated }) {
 
     return (
         <header className={style.header}>
-            <Link to="/" className={style.headerLogo}>BookShelf</Link>
-
-            {/* <div className={style.searchBar}>
-                <input type="text"
-                    className={style.searchField}
-                    onChange={(e) => { e.preventDefault(); setSearchWord(e.target.value); }}
-                    placeholder="Search by book title" />
-                <Link to={{ pathname: "/search", state: { searchWord } }}
-                    className={style.searchLink}
-                    onChange={(e) => setSearchWord(e.target.value)}>
-                    <i className="fas fa-search"></i>
-                </Link>
-            </div> */}
-                
-                <HeaderSearchBar style={{zIndex:1}} className={style.navbar}/>
+            <Link to="/" className={style.headerLogo}>BookShelf</Link>               
+          
+                <HeaderSearchBar style={{ zIndex: 1 }} className={style.navbar} />
 
             <nav className={style.headerNav}>
                 <ul className={style.headerNavUl}>

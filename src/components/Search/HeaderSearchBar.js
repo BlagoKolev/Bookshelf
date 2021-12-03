@@ -17,8 +17,12 @@ function HeaderSearchBar() {
         }
         getBooks();
     }, [])
-    console.log(searchWord)
-    console.log(books)
+   
+    const onClickClearContent = (e) => {
+        setSearchWord("");
+    }
+
+
     return (
         <div className={style.searchBar}>
             <div className={style.searchFieldContainer}>
@@ -27,11 +31,16 @@ function HeaderSearchBar() {
                     value={searchWord}
                     onChange={(e) => { setSearchWord(e.target.value); }}
                     placeholder="...search by book title" />
-                <Link to={{ pathname: "/search", state: { searchWord } }}
-                    className={style.searchLink}
-                    onChange={(e) => setSearchWord(e.target.value)}>
-                    <i className="fas fa-search"></i>
-                </Link>
+                {searchWord.length > 0
+                    ? <div className={style.closeIcon}>
+                        <i class="fas fa-times-circle" onClick={onClickClearContent}></i>
+                    </div>
+                    : <Link to={{ pathname: "/search", state: { searchWord } }}
+                        className={style.searchLink}
+                        onChange={(e) => setSearchWord(e.target.value)}>
+                        <i className="fas fa-search"></i>
+                    </Link>
+                }
             </div>
             {searchWord.length > 0 && (
                 <div className={style.dataResult}>
@@ -39,7 +48,7 @@ function HeaderSearchBar() {
                         return (
                             <Link to={`/bookDetails/${x.id}`} details={x}
                                 className={style.headerSearchLink}
-                                onClick={(e) => {setSearchWord("")}}>
+                                onClick={(e) => { setSearchWord("") }}>
                                 <p className={style.dataItem}>{x.title}</p>
                             </Link>
                         )

@@ -5,6 +5,10 @@
     position: relative;
 }
 
+.searchFieldContainer {
+    display: flex;
+}
+
 .searchField {
     margin-right: 10px;
 }
@@ -58,4 +62,10 @@
 
 .headerSearchLink {
     text-decoration: none;
+}
+
+.closeIcon {
+    position: relative;
+    color: red;
+   
 }
