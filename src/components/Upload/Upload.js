@@ -3,8 +3,9 @@ import { getDownloadURL, ref, uploadBytesResumable } from '@firebase/storage';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import style from './Upload.module.css';
+import { UserContext } from '../../Helper/Context.js'
 
-function Upload() {
+function Upload(props) {
 
     const [progress, setProgress] = useState(0);
     const [title, setTitle] = useState("");
@@ -13,6 +14,9 @@ function Upload() {
     const [imgUrl, setImgUrl] = useState("");
     const [file, setFile] = useState({});
 
+    // const {user, setUser} = useState(UserContext);
+    console.log(props.currentUser?.uid)
+    
     const onSubmitUpload = (e) => {
         e.preventDefault();
         let fileToUpload = file;
@@ -53,10 +57,10 @@ function Upload() {
         setFile(e.target.files[0])
     }
    
-
+    
     return (
         <div className={style.uploadContainer}>
-            <h1>Upload your new book here</h1>
+            <h1>Upload your new book</h1>
             <form onSubmit={onSubmitUpload} className={style.form}>
                 <label className={style.label}>Title
                     <input type="text" className={style.input} onChange={(e) => { setTitle(e.target.value) }} />
@@ -74,6 +78,7 @@ function Upload() {
                 <input type="submit" value="Upload" className={style.uploadBtn} />
             </form>
             <h3>Uploaded: {progress} %</h3>
+            <progress value={0} max={100}></progress>
         </div>
     )
 }

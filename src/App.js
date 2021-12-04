@@ -11,6 +11,8 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import userEvent from '@testing-library/user-event';
 
+import {UserContext} from './Helper/Context.js';
+
 
 function App() {
 
@@ -20,12 +22,14 @@ function App() {
     auth.onAuthStateChanged(setUser)
   }, []);
   
+
+
   return (
-    <div className="App">
+    <UserContext.Provider className="App" value={{user, setUser}}>
       <Header username={user?.email} isAuthenticated={Boolean(user)} style={{position:"relative"}} />
       <Main />
       <Footer />
-    </div>
+    </UserContext.Provider>
   );
 }
 

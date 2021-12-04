@@ -45,7 +45,7 @@ function Header({ username, isAuthenticated }) {
 
                     {isAuthenticated &&
                         <li className={style.headerNavElement}>
-                            Hello: {username}
+                            Hello: <span className={style.username}> {username}</span>
                         </li>}
 
                     {isAuthenticated &&

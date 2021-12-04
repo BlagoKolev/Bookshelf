@@ -45,8 +45,13 @@
     color: white;
 }
 
-
 .navbar {
     z-index: 1;
     position: relative;
+}
+
+.username {
+    color:lightgray;
+    font-weight: bolder;
+    font-style: italic;
 }
