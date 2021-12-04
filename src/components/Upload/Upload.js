@@ -1,8 +1,9 @@
-import { storage } from '../../firebase-config.js';
+import style from './Upload.module.css';
+import { db, storage } from '../../firebase-config.js';
 import { getDownloadURL, ref, uploadBytesResumable } from '@firebase/storage';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import style from './Upload.module.css';
+import { addDoc, collection } from '@firebase/firestore';
 import { UserContext } from '../../Helper/Context.js'
 
 function Upload(props) {
@@ -12,17 +13,40 @@ function Upload(props) {
     const [author, setAuthor] = useState("");
     const [review, setReview] = useState("");
     const [imgUrl, setImgUrl] = useState("");
+    const [genre, setGenre] = useState("");
+    const [downloadFileUrl, setDownloadFileUrl] = useState("");
     const [file, setFile] = useState({});
 
-    // const {user, setUser} = useState(UserContext);
-    console.log(props.currentUser?.uid)
-    
+    console.log(props.currentUser);
+
+    const booksRef = collection(db, "users");
+
+
+    //Function to submit all data to Database (Firebase);
     const onSubmitUpload = (e) => {
         e.preventDefault();
         let fileToUpload = file;
         uploadFiles(fileToUpload);
+        uploadBookInfo();
     };
 
+    //Function to upload book info to Firebase firestore;
+    const uploadBookInfo = async () => {
+        let newBook = {
+            title,
+            author,
+            review,
+            imgUrl,
+            genre,
+            downloadFileUrl,
+            creatorId: props.currentUser?.uid,
+            creator: props.currentUser.email
+        };
+
+        await addDoc(booksRef, newBook)
+    };
+
+    //Function to upload *.pdf book file to Firebase Storage;
     const uploadFiles = (fileToUpload) => {
 
         if (!fileToUpload) { return };
@@ -37,7 +61,7 @@ function Upload(props) {
             (error) => onErrorUploadNotify(),
             () => {
                 getDownloadURL(uploadTask.snapshot.ref)
-                    //.then(url => console.log(url))
+                    .then((url) => setDownloadFileUrl(url))
                     .then(resp => onSuccessUploadNotify());
             }
         );
@@ -56,8 +80,8 @@ function Upload(props) {
     const getFile = (e) => {
         setFile(e.target.files[0])
     }
-   
-    
+
+
     return (
         <div className={style.uploadContainer}>
             <h1>Upload your new book</h1>
@@ -73,6 +97,19 @@ function Upload(props) {
                 </label>
                 <label className={style.label}>Book cover URL
                     <input type="text" className={style.input} onChange={(e) => { setImgUrl(e.target.value) }} />
+                </label>
+                <label>Genre:
+                    <select className={style.genreList} onChange={(e) => { setGenre(e.target.value); }}>
+                        <option>Please choose Genre...</option>
+                        <option className={style.genreListItem} value="Action and Adventure">Action and Adventure</option>
+                        <option className={style.genreListItem} value="Classics">Classics</option>
+                        <option className={style.genreListItem} value="Comic Book or Graphic Novel">Comic Book or Graphic Novel</option>
+                        <option className={style.genreListItem} value="Detective and Mystery">Detective and Mystery</option>
+                        <option className={style.genreListItem} value="Fantasy">Fantasy</option>
+                        <option className={style.genreListItem} value="Science">Science</option>
+                        <option className={style.genreListItem} value="Horror">Horror</option>
+                        <option className={style.genreListItem} value="Literary Fiction">Literary Fiction</option>
+                    </select>
                 </label>
                 <input type="file" className={style.fileField} onChange={getFile} />
                 <input type="submit" value="Upload" className={style.uploadBtn} />
