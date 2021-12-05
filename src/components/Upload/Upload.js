@@ -4,7 +4,6 @@ import { getDownloadURL, ref, uploadBytesResumable } from '@firebase/storage';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { addDoc, collection } from '@firebase/firestore';
-import { UserContext } from '../../Helper/Context.js'
 
 function Upload(props) {
 
@@ -12,42 +11,25 @@ function Upload(props) {
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
     const [review, setReview] = useState("");
-    const [imgUrl, setImgUrl] = useState("");
+    const [bookCoverUrl, setbookCoverUrl] = useState("");
     const [genre, setGenre] = useState("");
-    const [downloadFileUrl, setDownloadFileUrl] = useState("");
     const [file, setFile] = useState({});
 
     console.log(props.currentUser);
 
-    const booksRef = collection(db, "users");
+    const booksRef = collection(db, "Books");
 
 
     //Function to submit all data to Database (Firebase);
     const onSubmitUpload = (e) => {
         e.preventDefault();
         let fileToUpload = file;
-        uploadFiles(fileToUpload);
-        uploadBookInfo();
+        uploadFile(fileToUpload);
     };
 
-    //Function to upload book info to Firebase firestore;
-    const uploadBookInfo = async () => {
-        let newBook = {
-            title,
-            author,
-            review,
-            imgUrl,
-            genre,
-            downloadFileUrl,
-            creatorId: props.currentUser?.uid,
-            creator: props.currentUser.email
-        };
-
-        await addDoc(booksRef, newBook)
-    };
 
     //Function to upload *.pdf book file to Firebase Storage;
-    const uploadFiles = (fileToUpload) => {
+    const uploadFile = (fileToUpload) => {
 
         if (!fileToUpload) { return };
         const storageRef = ref(storage, `/books/${fileToUpload.name}`);
@@ -60,8 +42,21 @@ function Upload(props) {
         },
             (error) => onErrorUploadNotify(),
             () => {
-                getDownloadURL(uploadTask.snapshot.ref)
-                    .then((url) => setDownloadFileUrl(url))
+                getDownloadURL(uploadTask.snapshot.ref) // Get download URL for uploaded file
+                    .then((url) => {           //Create a book object and upload it to a Firebase
+                        let newBook = {
+                            title,
+                            author,
+                            review,
+                            bookCoverUrl,
+                            genre,
+                            downloadFileUrl: url,
+                            creatorId: props.currentUser?.uid,
+                            creator: props.currentUser.email
+                        };
+
+                        addDoc(booksRef, newBook);
+                    })
                     .then(resp => onSuccessUploadNotify());
             }
         );
@@ -81,7 +76,6 @@ function Upload(props) {
         setFile(e.target.files[0])
     }
 
-
     return (
         <div className={style.uploadContainer}>
             <h1>Upload your new book</h1>
@@ -96,7 +90,7 @@ function Upload(props) {
                     <textarea type="textarea" rows="10" className={style.input} onChange={(e) => { setReview(e.target.value) }} />
                 </label>
                 <label className={style.label}>Book cover URL
-                    <input type="text" className={style.input} onChange={(e) => { setImgUrl(e.target.value) }} />
+                    <input type="text" className={style.input} onChange={(e) => { setbookCoverUrl(e.target.value) }} />
                 </label>
                 <label>Genre:
                     <select className={style.genreList} onChange={(e) => { setGenre(e.target.value); }}>
