@@ -1,36 +1,88 @@
 .uploadContainer {
     display: flex;
     flex-direction: column;
-    width: 30%;
-    /* margin-top: 20px; */
+    width: 80%;
     margin-left: 50px;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .form {
     display: flex;
     flex-direction: column;
-   
+    width: 90%;
+    background-color: #333333;
+    margin-right: 50px;
+    padding-left: 100px;
+    padding-bottom: 30px;
+    border: 1px solid #333333;
+    border-radius: 20px;
     
+}
+
+.fields {
+    display: flex;
+}
+
+.firstPart, .secondPart {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-right: 50px;
 }
 
 .label {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     justify-content: space-between;
+    color: lightgray;
 }
 
 .input {
     width: 70%;
-   
+    background-color: #333333;
 }
 
 .fileField {
     align-self:flex-end;
-    margin-top: 10px;
     margin-bottom: 20px;
+    color: lightgray;
+}
+
+.fileField:hover {
+    cursor: pointer;
 }
 
 .uploadBtn {
     width: 100px;
     align-self: center;
+    margin-top: 50px;
+    margin-right: 100px;
+}
+
+.uploadBtn:hover {
+    cursor: pointer;
+    background-color:green;
+    color: lightgray;
+}
+
+.secondPart  .label {
+    margin-left: 30px;
+}
+
+.progressBar {
+    align-self: center;
+    margin-top: 10px;
+    margin-right: 100px;
+}
+
+.header {
+    color: lightgray;
+    align-self: center;
+    margin-right: 100px;
+}
+
+.genreList:hover {
+    cursor: pointer;
 }

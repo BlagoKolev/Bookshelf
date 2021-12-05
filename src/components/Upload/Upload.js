@@ -78,38 +78,45 @@ function Upload(props) {
 
     return (
         <div className={style.uploadContainer}>
-            <h1>Upload your new book</h1>
             <form onSubmit={onSubmitUpload} className={style.form}>
-                <label className={style.label}>Title
-                    <input type="text" className={style.input} onChange={(e) => { setTitle(e.target.value) }} />
-                </label>
-                <label className={style.label}>Author
-                    <input type="text" className={style.input} onChange={(e) => { setAuthor(e.target.value) }} />
-                </label>
-                <label className={style.label}>Review
-                    <textarea type="textarea" rows="10" className={style.input} onChange={(e) => { setReview(e.target.value) }} />
-                </label>
-                <label className={style.label}>Book cover URL
-                    <input type="text" className={style.input} onChange={(e) => { setbookCoverUrl(e.target.value) }} />
-                </label>
-                <label>Genre:
-                    <select className={style.genreList} onChange={(e) => { setGenre(e.target.value); }}>
-                        <option>Please choose Genre...</option>
-                        <option className={style.genreListItem} value="Action and Adventure">Action and Adventure</option>
-                        <option className={style.genreListItem} value="Classics">Classics</option>
-                        <option className={style.genreListItem} value="Comic Book or Graphic Novel">Comic Book or Graphic Novel</option>
-                        <option className={style.genreListItem} value="Detective and Mystery">Detective and Mystery</option>
-                        <option className={style.genreListItem} value="Fantasy">Fantasy</option>
-                        <option className={style.genreListItem} value="Science">Science</option>
-                        <option className={style.genreListItem} value="Horror">Horror</option>
-                        <option className={style.genreListItem} value="Literary Fiction">Literary Fiction</option>
-                    </select>
-                </label>
-                <input type="file" className={style.fileField} onChange={getFile} />
+            <h1 className={style.header}>Upload your new book</h1>
+               <div className={style.fields}>
+               <div className={style.firstPart}>
+                    <label className={style.label}>Title:
+                        <input type="text" className={style.input} onChange={(e) => { setTitle(e.target.value) }} />
+                    </label>
+                    <label className={style.label}>Author:
+                        <input type="text" className={style.input} onChange={(e) => { setAuthor(e.target.value) }} />
+                    </label>
+
+                    <label className={style.label}>Book cover URL:
+                        <input type="text" className={style.input} onChange={(e) => { setbookCoverUrl(e.target.value) }} />
+                    </label>
+                    <label className={style.label}>Genre:
+                        <select className={style.genreList} onChange={(e) => { setGenre(e.target.value); }}>
+                            <option>Please choose Genre...</option>
+                            <option className={style.genreListItem} value="Action and Adventure">Action and Adventure</option>
+                            <option className={style.genreListItem} value="Classics">Classics</option>
+                            <option className={style.genreListItem} value="Comic Book or Graphic Novel">Comic Book or Graphic Novel</option>
+                            <option className={style.genreListItem} value="Detective and Mystery">Detective and Mystery</option>
+                            <option className={style.genreListItem} value="Fantasy">Fantasy</option>
+                            <option className={style.genreListItem} value="Science">Science</option>
+                            <option className={style.genreListItem} value="Horror">Horror</option>
+                            <option className={style.genreListItem} value="Literary Fiction">Literary Fiction</option>
+                        </select>
+                    </label>
+                </div>
+                <div className={style.secondPart}>
+                    <label className={style.label}>Review:
+                        <textarea type="textarea" rows="9" className={style.input} onChange={(e) => { setReview(e.target.value) }} />
+                    </label>
+                    <input type="file" className={style.fileField} onChange={getFile} />
+                </div>
+               </div>
                 <input type="submit" value="Upload" className={style.uploadBtn} />
+                {/* <h3>Uploaded: {progress} %</h3> */}
+               <progress className={style.progressBar} value={0} max={100} /> 
             </form>
-            <h3>Uploaded: {progress} %</h3>
-            <progress value={0} max={100}></progress>
         </div>
     )
 }
