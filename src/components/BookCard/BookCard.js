@@ -6,7 +6,7 @@ function BookCard(props) {
     return (
         <div className={style.container}>
             <div className={style.imageContainer}>
-                <img className={style.image} src={props.details.image}></img>
+                <img className={style.image} src={props.details.bookCoverUrl}></img>
                 {/* <img className={style.image} src="https://cdn.picpng.com/book/book-view-30965. */}
             </div>
             <p>Title: {props.details.title}</p>

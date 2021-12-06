@@ -1,5 +1,6 @@
 import style from './Main.module.css';
 import { Route } from 'react-router-dom';
+import { useContext } from 'react';
 import Home from '../Home/Home.js';
 import Login from '../Login/Login.js';
 import Register from '../Register/Register.js';
@@ -8,8 +9,8 @@ import BookCard from '../BookCard/BookCard';
 import Genre from '../Genres/Genre';
 import Search from '../Search/Search';
 import Upload from '../Upload/Upload.js';
+import MyBooks from '../MyBooks/MyBooks.js';
 import {UserContext} from '../../Helper/Context.js';
-import { useContext } from 'react';
 
 function Main() {
    
@@ -34,6 +35,8 @@ function Main() {
             <Route path="/search" render={(props) => (<Search {...props} auther={true} />)} />
             <Route path="/uploadFile" render={(props) => (<Upload currentUser={user} {...props} auther={true} />)} />
             {/* <Route path="/uploadFile" component={Upload }  /> */}
+            <Route path="/myBooks" render={(props) => (<MyBooks currentUser={user} {...props} auther={true} />)} />
+            {/* <Route path="/myBooks" component={MyBooks} /> */}
         </div>
     )
 }

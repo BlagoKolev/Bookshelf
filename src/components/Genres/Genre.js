@@ -19,7 +19,6 @@ function ActionAndAdventure({passedGenre}) {
         getBooks();
     }, []);
    
-
     return (
         <div className={style.wrapper}>
             <div className={style.category}>
