@@ -1,22 +1,33 @@
 .editContainer {
     display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: center;
+    align-items: center;
+}
+
+.text {
+    margin-top: 0;
 }
 
 .form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 10px;
     background-color: #333333;
     padding: 20px;
-    width: 60%;
-    margin-bottom: 50px;
-    justify-content: center;
+    width: 50%;
+    margin-bottom: 40px;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    
 }
 
 .label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
     color:white;
     margin-bottom: 30px;
     min-width: 300px;

@@ -44,6 +44,7 @@ function EditBook({ match }) {
 
     return (
         <div className={style.editContainer}>
+            <h3 className={style.text}>Edit your book</h3>
             <form className={style.form} onSubmit={onSubmitEdit}>
                 <label className={style.label} htmlFor="title">Title:
                     <input className={style.input} name="title" defaultValue={book.title}></input>
