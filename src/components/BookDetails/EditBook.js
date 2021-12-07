@@ -24,7 +24,7 @@ function EditBook({ match }) {
         e.preventDefault();
 
         let formData = new FormData(e.currentTarget);
-       // console.log(book.id)
+      
         let title = formData.get("title");
         let author = formData.get("author");
         let genre = formData.get("genre");
@@ -45,16 +45,16 @@ function EditBook({ match }) {
     return (
         <div className={style.editContainer}>
             <form className={style.form} onSubmit={onSubmitEdit}>
-                <label htmlFor="title">Title:
-                    <input name="title" defaultValue={book.title}></input>
+                <label className={style.label} htmlFor="title">Title:
+                    <input className={style.input} name="title" defaultValue={book.title}></input>
                 </label>
-                <label htmlFor="author">Author:
-                    <input name="author" defaultValue={book.author}></input>
+                <label className={style.label} htmlFor="author">Author:
+                    <input className={style.input} name="author" defaultValue={book.author}></input>
                 </label>
-                <label htmlFor="coverUrl">Cover Url:
-                    <input name="coverUrl" defaultValue={book.bookCoverUrl}></input>
+                <label className={style.label} htmlFor="coverUrl">Cover Url:
+                    <input className={style.input} name="coverUrl" defaultValue={book.bookCoverUrl}></input>
                 </label>
-                <label htmlFor="genre">Genre:
+                <label className={style.label} htmlFor="genre">Genre:
                     <select className={style.genreList} name="genre" defaulValue={book.genre}>
                         <option disabled>Please choose Genre...</option>
                         <option className={style.genreListItem} value="Action and Adventure">Action and Adventure</option>
@@ -67,7 +67,7 @@ function EditBook({ match }) {
                         <option className={style.genreListItem} value="Literary Fiction">Literary Fiction</option>
                     </select>
                 </label>
-                <label htmlFor="review">Review:
+                <label className={style.input} className={style.label} htmlFor="review">Review:
                     <textarea name="review" defaultValue={book.review}></textarea>
                 </label>
                 <input type="submit" value="Edit" />
