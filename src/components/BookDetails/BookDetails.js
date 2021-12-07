@@ -21,13 +21,16 @@ function BookDetails({ match }) {
     }, [])
 
     return (
-        <div>
+        <div className={style.wrapper}>
             {
                 books.filter(x => x.id == match.params.id).map(x => {
                     return (
                         <div className={style.detailsContainer}>
-                            <div className={style.imageContainer}>
-                                <img className={style.image} src={x.bookCoverUrl} />
+                            <div className={style.buttonWraper}>
+                                <div className={style.imageContainer}>
+                                    <img className={style.image} src={x.bookCoverUrl} />
+                                </div>
+                                <a href={x.downloadFileUrl} className={style.downloadBtn} target="_blank">Read Online</a>
                             </div>
                             <div className={style.infoContainer}>
                                 <div className={style.author}>
@@ -36,10 +39,13 @@ function BookDetails({ match }) {
                                 <div className={style.title}>
                                     <h2 className={style.text}>Title: <span className={style.span}>{x.title}</span></h2>
                                 </div>
-                                <div className={style.rewiew}>
-                                    <h3 className={style.text}>Review:</h3> <span className={style.span}>{x.review}</span>
+                                    <h3 className={style.text}>Review:</h3>
+                                <div className={style.review}>
+                                    <p className={style.reviewText}>
+                                        <span className={style.span}>{x.review}</span>
+                                    </p>
                                 </div>
-                                <a href={x.downloadFileUrl} className={style.downloadBtn} target="_blank">Read Online</a>
+
                             </div>
                         </div>
                     )
