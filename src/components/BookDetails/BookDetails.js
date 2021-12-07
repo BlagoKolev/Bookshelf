@@ -30,7 +30,10 @@ function BookDetails({ match }) {
                                 <div className={style.imageContainer}>
                                     <img className={style.image} src={x.bookCoverUrl} />
                                 </div>
-                                <a href={x.downloadFileUrl} className={style.downloadBtn} target="_blank">Read Online</a>
+                                <div className={style.buttonWrapper}>
+                                    <a href={x.downloadFileUrl} className={style.downloadBtn} target="_blank">Read Online</a>
+                                    <Link to={`/editBook/${match.params.id}`} className={style.editBtn}  bookId={match.params.id}>Edit</Link>
+                                </div>
                             </div>
                             <div className={style.infoContainer}>
                                 <div className={style.author}>
@@ -39,7 +42,7 @@ function BookDetails({ match }) {
                                 <div className={style.title}>
                                     <h2 className={style.text}>Title: <span className={style.span}>{x.title}</span></h2>
                                 </div>
-                                    <h3 className={style.text}>Review:</h3>
+                                <h3 className={style.text}>Review:</h3>
                                 <div className={style.review}>
                                     <p className={style.reviewText}>
                                         <span className={style.span}>{x.review}</span>

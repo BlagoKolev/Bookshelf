@@ -33,20 +33,47 @@
     max-width: 800px;
 }
 
+.buttonWrapper {
+    margin: 30px 0;
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+}
+
+.editBtn {
+    background-color: orange;
+    min-width: 100px;
+    max-width: 150px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    padding: 10px 10px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+}
+
 .downloadBtn {
    min-width: 100px;
    max-width: 150px;
    margin-bottom: 50px;
    margin-top: 20px;
-   padding: 20px;
+   padding: 10px 10px;
    text-decoration: none;
    background-color: #800000;
    color: white;
    text-align: center;
    border-radius: 20px;
+   
 }
 
 .downloadBtn:hover {
+    cursor: pointer;
+    background-color: limegreen;
+    color: white;
+}
+
+.editBtn:hover {
     cursor: pointer;
     background-color: limegreen;
     color: white;

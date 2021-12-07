@@ -11,6 +11,7 @@ import Search from '../Search/Search';
 import Upload from '../Upload/Upload.js';
 import MyBooks from '../MyBooks/MyBooks.js';
 import {UserContext} from '../../Helper/Context.js';
+import EditBook from '../BookDetails/EditBook.js'
 
 function Main() {
    
@@ -37,6 +38,7 @@ function Main() {
             {/* <Route path="/uploadFile" component={Upload }  /> */}
             <Route path="/myBooks" render={(props) => (<MyBooks currentUser={user} {...props} auther={true} />)} />
             {/* <Route path="/myBooks" component={MyBooks} /> */}
+            <Route path="/editBook/:bookId" component={EditBook} />
         </div>
     )
 }
