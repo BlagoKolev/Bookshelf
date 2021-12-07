@@ -32,7 +32,7 @@ function BookDetails({ match }) {
                                 </div>
                                 <div className={style.buttonWrapper}>
                                     <a href={x.downloadFileUrl} className={style.downloadBtn} target="_blank">Read Online</a>
-                                    <Link to={`/editBook/${match.params.id}`} className={style.editBtn}  bookId={match.params.id}>Edit</Link>
+                                    <Link to={`/editBook/${match.params.id}`} className={style.editBtn}  bookid={match.params.id}>Edit</Link>
                                 </div>
                             </div>
                             <div className={style.infoContainer}>
