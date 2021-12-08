@@ -14,6 +14,7 @@ function BookDetails({ match }) {
     console.log(context.user);
     let user = context.user;
 
+
     let [books, setBooks] = useState([]);
 
     let booksRef = collection(db, 'Books');
@@ -37,10 +38,16 @@ function BookDetails({ match }) {
                                     <img className={style.image} src={x.bookCoverUrl} />
                                 </div>
                                 <div className={style.buttonWrapper}>
-                                    <a href={x.downloadFileUrl} className={style.downloadBtn} target="_blank" style={{ pointerEvents: user ? 'visible' :'none' }}>Read Online
+                                    <a href={x.downloadFileUrl} className={style.downloadBtn} target="_blank" style={{ pointerEvents: user ? 'visible' : 'none' }}>Read Online
                                     </a>
-                                    <Link to={`/editBook/${match.params.id}`} className={style.editBtn} bookid={match.params.id} style={{ pointerEvents: user ? 'visible' :'none' }}>Edit
-                                    </Link>
+                                    {
+                                        user?.uid == x.creatorId
+                                            ?
+                                            <Link to={`/editBook/${match.params.id}`} className={style.editBtn} bookid={match.params.id} style={{ pointerEvents: user ? 'visible' : 'none' }}>Edit
+                                            </Link>
+                                            :
+                                            <div></div>
+                                    }
                                 </div>
                             </div>
                             <div className={style.infoContainer}>
