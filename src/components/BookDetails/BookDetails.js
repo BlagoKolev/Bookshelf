@@ -5,17 +5,23 @@ import { collection, getDocs } from 'firebase/firestore';
 import style from './BookDetails.module.css';
 import { Link } from 'react-router-dom';
 
+import { useContext } from 'react';
+import { UserContext } from '../../Helper/Context'
+
 function BookDetails({ match }) {
     console.log(match.params)
+    let context = useContext(UserContext);
+    console.log(context.user);
+    let user = context.user;
 
-    let [books, setBooks] = useState([{ title: "a", author: "b" }]);
+    let [books, setBooks] = useState([]);
 
     let booksRef = collection(db, 'Books');
 
     useEffect((e) => {
         const GetBookById = async (id) => {
             const data = await getDocs(booksRef);
-            setBooks(data.docs.map(x => ({ ...x.data(), id: x.id })));
+            setBooks(data.docs.map(x => ({ ...x.data(), id: x.id, key: x.id })));
         };
         GetBookById(match.params.id);
     }, [])
@@ -31,8 +37,10 @@ function BookDetails({ match }) {
                                     <img className={style.image} src={x.bookCoverUrl} />
                                 </div>
                                 <div className={style.buttonWrapper}>
-                                    <a href={x.downloadFileUrl} className={style.downloadBtn} target="_blank">Read Online</a>
-                                    <Link to={`/editBook/${match.params.id}`} className={style.editBtn}  bookid={match.params.id}>Edit</Link>
+                                    <a href={x.downloadFileUrl} className={style.downloadBtn} target="_blank" style={{ pointerEvents: user ? 'visible' :'none' }}>Read Online
+                                    </a>
+                                    <Link to={`/editBook/${match.params.id}`} className={style.editBtn} bookid={match.params.id} style={{ pointerEvents: user ? 'visible' :'none' }}>Edit
+                                    </Link>
                                 </div>
                             </div>
                             <div className={style.infoContainer}>
