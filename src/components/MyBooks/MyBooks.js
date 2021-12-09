@@ -18,6 +18,7 @@ function MyBooks(props) {
     const booksRef = collection(db, "Books");
     const context = useContext(UserContext);
     const user = context.user;
+    console.log(user.uid)
 
     useEffect(() => {
         const getBooks = async () => {
@@ -25,7 +26,7 @@ function MyBooks(props) {
             setBooks(data.docs.map(x => ({ ...x.data(), id: x.id })).filter(x => x.creatorId === user.uid));
         };
         getBooks();
-    }, [])
+    }, [user])
 
     console.log(books)
 
