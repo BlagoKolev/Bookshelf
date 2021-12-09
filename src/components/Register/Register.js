@@ -7,6 +7,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useContext } from 'react';
 import { UserContext } from '../../Helper/Context.js';
+import { registerSchema } from '../../Validations/FormValidations.js';
 
 
 function Register({ history }) {
@@ -34,7 +35,6 @@ function Register({ history }) {
     };
 
     const onRegister = async (e) => {
-
         e.preventDefault();
 
         if (registerPassword != registerConfPassword) {
@@ -42,7 +42,14 @@ function Register({ history }) {
         } else {
 
             try {
-                const user = await createUserWithEmailAndPassword(auth,
+                const newUser = {
+                    email: registerEmail,
+                    password: registerPassword,
+                    confirmPassword: registerConfPassword
+                };
+                let isValid = await registerSchema.isValid(newUser);
+                console.log(isValid)
+                await createUserWithEmailAndPassword(auth,
                     registerEmail,
                     registerPassword);
                 history.push("/")
