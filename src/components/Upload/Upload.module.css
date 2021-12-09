@@ -42,6 +42,7 @@
 .input {
     width: 70%;
     background-color: #333333;
+    color: white;
 }
 
 .fileField {
