@@ -1,11 +1,14 @@
 import style from './Upload.module.css';
 import { db, storage } from '../../firebase-config.js';
 import { getDownloadURL, ref, uploadBytesResumable } from '@firebase/storage';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { addDoc, collection } from '@firebase/firestore';
+import { withRouter } from 'react-router-dom';
+import { UserContext } from '../../Helper/Context';
 
-function Upload(props) {
+
+function Upload() {
 
     const [progress, setProgress] = useState(0);
     const [title, setTitle] = useState("");
@@ -15,7 +18,10 @@ function Upload(props) {
     const [genre, setGenre] = useState("");
     const [file, setFile] = useState({});
 
-    console.log(props.currentUser);
+    const context = useContext(UserContext);
+    let user = context.user;
+
+    console.log(user);
 
     const booksRef = collection(db, "Books");
 
@@ -51,8 +57,8 @@ function Upload(props) {
                             bookCoverUrl,
                             genre,
                             downloadFileUrl: url,
-                            creatorId: props.currentUser?.uid,
-                            creator: props.currentUser.email
+                            creatorId: user.uid,
+                            creator: user.email
                         };
 
                         addDoc(booksRef, newBook);
@@ -121,4 +127,4 @@ function Upload(props) {
     )
 }
 
-export default Upload;
+export default withRouter(Upload);

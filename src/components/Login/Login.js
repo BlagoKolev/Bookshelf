@@ -1,14 +1,19 @@
 import style from './Login.module.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { auth } from '../../firebase-config.js';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { UserContext } from '../../Helper/Context.js'; 
+import { Redirect } from 'react-router';
 
 function Login({ history }) {
 
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
+
+    const context = useContext(UserContext);
+    let user = context.user;
 
     toast.configure();
 
@@ -36,6 +41,9 @@ function Login({ history }) {
     
     return (
         <div className={style.loginContainer}>
+        {
+            !user 
+            ?
             <form className={style.login} onSubmit={onLogin}>
                 <h2 className={style.loginTitle}>Login to your account</h2>
                 <label className={style.label}>
@@ -57,6 +65,8 @@ function Login({ history }) {
                 </label>
                 <input type="submit" value="Login" className={style.button}></input>
             </form>
+            : <Redirect to="/" />
+        }
         </div >
     )
 }

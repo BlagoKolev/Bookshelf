@@ -1,6 +1,5 @@
 import style from './Main.module.css';
 import { Route } from 'react-router-dom';
-import { useContext } from 'react';
 import Home from '../Home/Home.js';
 import Login from '../Login/Login.js';
 import Register from '../Register/Register.js';
@@ -10,13 +9,18 @@ import Genre from '../Genres/Genre';
 import Search from '../Search/Search';
 import Upload from '../Upload/Upload.js';
 import MyBooks from '../MyBooks/MyBooks.js';
-import {UserContext} from '../../Helper/Context.js';
-import EditBook from '../BookDetails/EditBook.js'
+import EditBook from '../BookDetails/EditBook.js';
+import { UserContext } from '../../Helper/Context.js';
+import { useContext } from 'react';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
 
 function Main() {
    
-    const {user, setUser} = useContext(UserContext);
-    console.log(user?.uid)
+    //const {user, setUser} = useContext(UserContext);
+    const context = useContext(UserContext);
+    let user = context.user;
+    //console.log(user?.uid)
+
     return (
         <div className={style.main}>
             <Route path="/" exact component={Home} />
@@ -34,9 +38,11 @@ function Main() {
             <Route path="/literaryFiction" render={(props) => (<Genre passedGenre="Literary Fiction" {...props} authed={true} />)} />
             {/* <Route  path="/search" component={Search}/> */}
             <Route path="/search" render={(props) => (<Search {...props} auther={true} />)} />
-            <Route path="/uploadFile" render={(props) => (<Upload currentUser={user} {...props} auther={true} />)} />
+            {/* <Route path="/uploadFile" render={(props) => (<Upload currentUser={user} {...props} auther={true} />)} /> */}
             {/* <Route path="/uploadFile" component={Upload }  /> */}
-            <Route path="/myBooks" render={(props) => (<MyBooks currentUser={user} {...props} auther={true} />)} />
+            <ProtectedRoute path="/uploadFile" component={Upload} isAuthenticated={Boolean(user)} />
+            <ProtectedRoute path="/myBooks" component={MyBooks} isAuthenticated={Boolean(user)} />
+            {/* <Route path="/myBooks" render={(props) => (<MyBooks currentUser={user} {...props} auther={true} />)} /> */}
             {/* <Route path="/myBooks" component={MyBooks} /> */}
             <Route path="/editBook/:bookId" component={EditBook} />
         </div>
