@@ -4,7 +4,6 @@ import Home from '../Home/Home.js';
 import Login from '../Login/Login.js';
 import Register from '../Register/Register.js';
 import BookDetails from '../BookDetails/BookDetails.js';
-import BookCard from '../BookCard/BookCard';
 import Genre from '../Genres/Genre';
 import Search from '../Search/Search';
 import Upload from '../Upload/Upload.js';
