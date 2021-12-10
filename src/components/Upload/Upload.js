@@ -118,7 +118,7 @@ function Upload({history}) {
                         <label className={style.label}>Review:
                             <textarea type="textarea" rows="9" className={style.input} onChange={(e) => { setReview(e.target.value) }} />
                         </label>
-                        <input type="file" className={style.fileField} onChange={getFile} />
+                        <input type="file" className={style.fileField} onChange={getFile} accept=".pdf,.doc" />
                     </div>
                 </div>
                 <input type="submit" value="Upload" className={style.uploadBtn} />

@@ -11,7 +11,7 @@ import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
 
 function Register({ history }) {
-    
+
     const context = useContext(UserContext);
     let user = context.user;
 
@@ -28,7 +28,7 @@ function Register({ history }) {
     const passwordsMatchNotify = () => {
         toast.warning("Password and ConfirmPassword must be the same !", { position: toast.POSITION.TOP_CENTER });
     };
-   
+
     // const validate = values => {
 
     //     const errors = {};
@@ -108,7 +108,9 @@ function Register({ history }) {
                             //{...formik.getFieldProps('email')}
                             />
                         </label>
-                        <ErrorMessage name='email' className={style.errorMessage} />
+                        <ErrorMessage name='email' className={style.errorMessage} >
+                            {msg => <div style={{ color: 'red' }}>{msg}</div>}
+                        </ErrorMessage>
 
                         < label className={style.label} htmlFor="password" >
                             <i style={{ color: "white", marginRight: 10 }} className="fas fa-key login-icon" >
@@ -124,7 +126,9 @@ function Register({ history }) {
                             //{...formik.getFieldProps('password')}
                             />
                         </label >
-                        <ErrorMessage name='password' className={style.errorMessage} />
+                        <ErrorMessage name='password' className={style.errorMessage} >
+                            {msg => <div style={{ color: 'red' }}>{msg}</div>}
+                        </ErrorMessage>
 
                         < label className={style.label} htmlFor="confirmPassword" >
                             <i style={{ color: "white", marginRight: 10 }} className="fas fa-key login-icon" >
@@ -140,7 +144,9 @@ function Register({ history }) {
                             //{...formik.getFieldProps('confirmPassword')}
                             />
                         </label >
-                        <ErrorMessage name='confirmPassword' className={style.errorMessage} />
+                        <ErrorMessage name='confirmPassword' className={style.errorMessage} >
+                            {msg => <div style={{ color: 'red' }}>{msg}</div>}
+                        </ErrorMessage>
 
                         <input type="submit" value="Register" className={style.button}></input>
                     </Form >
