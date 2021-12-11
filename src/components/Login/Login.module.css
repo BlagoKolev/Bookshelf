@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     background-size: cover;
-    height: 510px;
+    height: auto;
     width: 100%;
     align-items: flex-start;
     
@@ -52,4 +52,15 @@
     color: white;
     margin-top: 0;
     margin-bottom: 50px;
+}
+
+@media screen and (max-width: 600px) {
+    
+    .loginContainer {
+        align-items: center;
+    }
+
+    .login {
+        margin-left: 0;
+    }
 }

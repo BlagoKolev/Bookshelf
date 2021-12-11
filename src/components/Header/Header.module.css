@@ -5,7 +5,7 @@
     background-color: #333333;
     color: white;
     position: relative;
-   
+    width: auto;
 }
 
 .headerLogo {
@@ -62,7 +62,7 @@
     .header {
         flex-wrap: wrap;
         justify-content: space-between;
-        min-width: 100%;
+        
     }
 
     .headerLogo {
@@ -84,9 +84,47 @@
 }
 
 @media screen and (max-width: 600px) {
+    
     .headerNav {
         margin-left: 5%;
         margin-top: 20px;
-       
+    }
+
+    .headerLogo {
+        margin-bottom: 20px;
     }
 }
+
+@media screen and (max-width: 450px) {
+
+     .header {
+         flex-direction: column;
+         justify-content: space-between;
+         align-items: center;
+         
+     }
+
+     .headerLogo {
+        margin-left: 0;
+        margin-left: 20px;
+     }
+
+     .headerNav {
+         max-width: 450px;
+         margin-left: 0;
+         margin-right: 0;
+     }
+
+     .headerNavUl {
+       padding-left: 10px;
+       flex-direction: column;
+       align-items: center;
+       margin-right: 0;
+    }
+
+    .navbar {
+        margin-left: 50px;
+    }
+   
+}
+

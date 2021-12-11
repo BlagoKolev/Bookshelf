@@ -4,3 +4,14 @@
     justify-content: center;
     background-color: #F3EDD7;
 }
+
+@media screen and (max-width: 900px) {
+    
+    .category {
+       flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    
+}

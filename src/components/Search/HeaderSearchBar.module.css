@@ -76,3 +76,10 @@
         padding-right: 50px;
     }
 }
+
+@media screen and (max-width: 450px) {
+    
+    .searchLink {
+        padding: 0;
+    }
+}

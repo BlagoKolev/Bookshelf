@@ -40,3 +40,23 @@
     color: white;
     border: 1px solid limegreen;
 }
+
+@media screen and (max-width:900px) {
+
+    .detailsBtn {
+        width: 100px;
+    }
+    
+    .container {
+        margin-right: 20px;
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    
+    .container {
+        width: 80%;
+        height: 500px;
+    }
+}

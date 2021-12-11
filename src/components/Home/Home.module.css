@@ -2,15 +2,10 @@
     display: flex;
     flex-direction: column;
     background-color: #E1DCC5;
+    width: 100%;
 }
 
 .categoryLink {
     text-decoration: none;
 }
 
-@media screen and (max-width: 900px) {
-    
-    /* .section {
-        background-color: red;
-    } */
-}
