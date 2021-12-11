@@ -7,3 +7,10 @@
 .categoryLink {
     text-decoration: none;
 }
+
+@media screen and (max-width: 900px) {
+    
+    /* .section {
+        background-color: red;
+    } */
+}

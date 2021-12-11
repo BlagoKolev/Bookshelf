@@ -69,3 +69,10 @@
     color: red;
    
 }
+
+@media screen and (max-width: 900px) {
+
+    .searchLink {
+        padding-right: 50px;
+    }
+}

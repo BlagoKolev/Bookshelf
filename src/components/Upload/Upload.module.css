@@ -5,7 +5,7 @@
     margin-left: 50px;
     justify-content: center;
     align-items: center;
-
+    max-height: 100%;
 }
 
 .form {

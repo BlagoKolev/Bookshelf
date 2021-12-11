@@ -1,7 +1,8 @@
 .main {
     display: flex;
-    min-height: 510px;
-    min-width: 1349px;
+    /* min-height: 510px;
+    min-width: 1349px; */
     /* justify-content: center; */
-    
+    max-width: 100%;
+    min-height: 100%;
 }

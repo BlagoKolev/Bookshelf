@@ -5,6 +5,7 @@
     background-color: #333333;
     color: white;
     position: relative;
+   
 }
 
 .headerLogo {
@@ -54,4 +55,38 @@
     color:lightgray;
     font-weight: bolder;
     font-style: italic;
+}
+
+@media screen and (max-width: 900px) {
+    
+    .header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        min-width: 100%;
+    }
+
+    .headerLogo {
+        width: 30%;
+        margin-top: 25px;
+    }
+
+    .navbar {
+        margin-top: 25px;
+        width: 30%;
+        padding-right: 50px;
+    }
+
+    .headerNav {
+        margin-left: 12%;
+        margin-top: 20px;
+       
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .headerNav {
+        margin-left: 5%;
+        margin-top: 20px;
+       
+    }
 }

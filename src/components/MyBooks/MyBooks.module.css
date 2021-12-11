@@ -11,6 +11,7 @@
 .wrapper {
     background-color: #E1DCC5;
     display: flex;
-    min-width: 1349px;
+    /* min-width: 1349px; */
     justify-content: center;
+    max-width: 100%;
 }
