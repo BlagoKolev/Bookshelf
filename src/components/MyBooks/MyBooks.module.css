@@ -13,7 +13,13 @@
     display: flex;
     /* min-width: 1349px; */
     justify-content: center;
-    max-width: 100%;
+    width: 100%;
+}
+
+.emptyBookshelf {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 @media screen and (max-width:600px) {

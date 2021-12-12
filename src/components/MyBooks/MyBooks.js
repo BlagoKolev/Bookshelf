@@ -33,7 +33,11 @@ function MyBooks(props) {
     return (
         <div className={style.wrapper}>
             <div className={style.booksWrapper}>
-                {books.map(x => <BookCard key={x.id} details={x} />)}
+                {
+                    books.length > 0
+                        ? books.map(x => <BookCard key={x.id} details={x} />)
+                        : <div className={style.emptyBookshelf}>You have no books in your Bookshelf.</div>
+                }
             </div>
         </div>
 
