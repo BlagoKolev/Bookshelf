@@ -73,7 +73,7 @@ function BookDetails({ match, history }) {
 
                     return (
                         <div className={style.detailsContainer}>
-                            <div className={style.buttonWraper}>
+                            <div className={style.leftSide}>
                                 <div className={style.imageContainer}>
                                     <img className={style.image} src={x.bookCoverUrl} />
                                 </div>
@@ -85,7 +85,7 @@ function BookDetails({ match, history }) {
                                                 ? 'none'
                                                 : 'visible'
                                         }}>
-                                        {x.likedByUsers.length} <i className="far fa-thumbs-up fa-3x"></i>
+                                        {x.likedByUsers.length} <i className="far fa-thumbs-up fa-2x"></i>
                                     </button>
                                     <button className={style.unlikeBtn} onClick={unlikeBook}
                                         style={{
@@ -93,20 +93,20 @@ function BookDetails({ match, history }) {
                                                 ? 'none'
                                                 : 'visible'
                                         }}>
-                                        {x.unlikedByUsers.length} <i className="far fa-thumbs-down  fa-3x" ></i>
+                                        {x.unlikedByUsers.length} <i className="far fa-thumbs-down  fa-2x" ></i>
                                     </button>
                                 </div>
                                 <div className={style.buttonWrapper}>
-                                    <a href={x.downloadFileUrl} className={style.downloadBtn} target="_blank" style={{ pointerEvents: user ? 'visible' : 'none' }}><i class="fas fa-book-open"></i>
+                                    <a href={x.downloadFileUrl} className={style.downloadBtn} target="_blank" style={{ pointerEvents: user ? 'visible' : 'none' }}><i className="far fa-eye fa-lg"></i>
                                     </a>
                                     {
                                         user?.uid == x.creatorId
                                             ?
                                             <div className={style.userSpecialBtn}>
-                                                <Link to={`/editBook/${match.params.id}`} className={style.editBtn} bookid={match.params.id} style={{ pointerEvents: user ? 'visible' : 'none' }}><i className="fas fa-edit"></i>
+                                                <Link to={`/editBook/${match.params.id}`} className={style.editBtn} bookid={match.params.id} style={{ pointerEvents: user ? 'visible' : 'none' }}><i className="fas fa-edit fa-lg"></i>
                                                 </Link>
                                                 <button className={style.deleteBtn} onClick={ () => {deleteBook()} }>
-                                                    <i className="fas fa-trash-alt"></i>
+                                                    <i className="fas fa-trash-alt fa-lg"></i>
                                                 </button>
                                             </div>
                                             :

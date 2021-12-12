@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
 import { UserContext } from '../../Helper/Context';
 
 
-function Upload({history}) {
+function Upload({ history }) {
 
     const [progress, setProgress] = useState(0);
     const [title, setTitle] = useState("");
@@ -60,8 +60,6 @@ function Upload({history}) {
                             downloadFileUrl: url,
                             creatorId: user.uid,
                             creator: user.email,
-                            likes: 0,
-                            unlikes: 0,
                             likedByUsers: [],
                             unlikedByUsers: []
                         };

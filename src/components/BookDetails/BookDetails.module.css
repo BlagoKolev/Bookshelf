@@ -1,6 +1,6 @@
 .wrapper {
     display: flex;
-    
+   
 }
 
 .details {
@@ -38,45 +38,57 @@
     display: flex;
     width: 90%;
     justify-content: space-around;
+    align-items: baseline;
+    justify-content: center;
 }
 
 .editBtn {
-    background-color: orange;
-    min-width: 100px;
-    max-width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
     margin-bottom: 50px;
     margin-top: 20px;
     padding: 10px 10px;
     text-decoration: none;
-    color: white;
+    color: orange;
+    background-color: #F7F4C9;
     text-align: center;
     border-radius: 20px;
+    border-radius: 50%;
+    border: 2px solid orange;
 }
 
 .downloadBtn {
-   min-width: 100px;
-   max-width: 150px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 30px;
+   height: 30px;
    margin-bottom: 50px;
    margin-top: 20px;
    padding: 10px 10px;
    text-decoration: none;
-   background-color: #800000;
    color: white;
-   text-align: center;
-   border-radius: 20px;
-   
+   border-radius: 50%;
+   color: seagreen;
+   background-color: #F5FFFA;
+   border: 2px solid seagreen;
 }
 
 .downloadBtn:hover {
     cursor: pointer;
-    background-color: limegreen;
+    background-color: seagreen;
     color: white;
+    transform: scale(1.2);
 }
 
 .editBtn:hover {
     cursor: pointer;
-    background-color: limegreen;
+    background-color: orange;
     color: white;
+    transform: scale(1.2);
 }
 
 .span {
@@ -85,12 +97,13 @@
     color: maroon;
 }
 
-.buttonWraper {
+.leftSide {
     display: flex;
     flex-direction: column;
     margin-left: 100px;
     align-items: center;
     max-width: 30%;
+   
 }
 
 .review {
@@ -110,23 +123,67 @@
 /* Styles only for Likes */
 .likesContainer {
     display: flex;
-    width: 80%;
+    width: 100%;
     justify-content: space-around;
     margin-top: 20px;
 }
 
 .likeBtn {
-    background-color: lightgreen;
+    background-color: #E8EAE9;
+    color: #0F5EC6;
     display: flex;
     align-items: baseline;
+    border: 2px solid #0F5EC6;
+    width: 100px;
+    justify-content: center;
+    border-radius: 5px;
 }
 
 .unlikeBtn {
-    background-color: red;
+    background-color: #F3E6E6;
+    color: #C40106;
     display: flex;
     align-items: baseline;
+    border: 2px solid #C40106;
+    width: 100px;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.likeBtn > i , .unlikeBtn > i {
+    margin-left: 20px;
 }
 
 .likeBtn:hover, .unlikeBtn:hover {
     cursor: pointer;
+    transform:scale(1.2);
+}
+
+.userSpecialBtn {
+    display: flex;
+    width: 60%;
+    justify-content: space-evenly;
+}
+
+.deleteBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 53px;
+    height: 53px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+    padding: 10px 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 50%;
+    color: #C40106;
+    background-color: #F3E6E6;
+    border: 2px solid #C40106;
+}
+
+.deleteBtn:hover {
+    color: white;
+    background-color: #C40106;
+    transform: scale(1.2);
 }
