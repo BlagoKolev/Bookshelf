@@ -7,7 +7,7 @@
 }
 
 .footerLogo {
-    margin-right: 50px;
+    margin-right: 100px;
 }
 
 .footerLogoLink {
@@ -19,4 +19,26 @@
     text-decoration: underline;
     color: darkgoldenrod;
     cursor: pointer;
+}
+
+.reactFooter {
+    margin-right: 100px;
+    color: #5FD6F7;
+    display: flex;
+    align-items: center;
+}
+
+.reactFooter > i {
+    margin-left: 15px;
+}
+
+@media screen and (max-width: 600px) {
+    
+    .footer {
+        flex-direction: column;
+    }
+    
+    .reactFooter, .footerLogo {
+        margin: 10px 0;
+    }
 }

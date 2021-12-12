@@ -7,6 +7,7 @@ function Footer() {
             <h3 className={style.footerLogo}>
                 <Link to="/" className={style.footerLogoLink}>BookShelf</Link>
             </h3>
+            <p className={style.reactFooter}>Powered by   <i className="fab fa-react fa-2x"></i></p>
             <p className={style.footerRights}>All Rights Reserved &copy;</p>
         </footer>
     )
