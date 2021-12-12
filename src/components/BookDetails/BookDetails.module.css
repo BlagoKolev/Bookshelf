@@ -34,7 +34,7 @@
 }
 
 .buttonWrapper {
-    margin: 30px 0;
+    margin: 10px 0;
     display: flex;
     width: 90%;
     justify-content: space-around;
@@ -105,4 +105,28 @@
 
 .reviewText {
     padding: 0 20px;
+}
+
+/* Styles only for Likes */
+.likesContainer {
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.likeBtn {
+    background-color: lightgreen;
+    display: flex;
+    align-items: baseline;
+}
+
+.unlikeBtn {
+    background-color: red;
+    display: flex;
+    align-items: baseline;
+}
+
+.likeBtn:hover, .unlikeBtn:hover {
+    cursor: pointer;
 }

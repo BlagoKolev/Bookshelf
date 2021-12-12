@@ -59,7 +59,11 @@ function Upload({history}) {
                             genre,
                             downloadFileUrl: url,
                             creatorId: user.uid,
-                            creator: user.email
+                            creator: user.email,
+                            likes: 0,
+                            unlikes: 0,
+                            likedByUsers: [],
+                            unlikedByUsers: []
                         };
 
                         addDoc(booksRef, newBook);
