@@ -1,15 +1,12 @@
-import * as bookService from '../../services/bookServices.js'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { db } from '../../firebase-config.js'
-import { collection, doc, getDocs, updateDoc } from 'firebase/firestore';
+import { collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
 import style from './BookDetails.module.css';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { UserContext } from '../../Helper/Context'
-import Likes from '../Likes/Likes.js';
+//import { useContext } from 'react';
+import { UserContext } from '../../Helper/Context';
 
-
-function BookDetails({ match }) {
+function BookDetails({ match, history }) {
     // console.log(match.params);
     let bookId = match.params.id;
     let context = useContext(UserContext);
@@ -32,7 +29,6 @@ function BookDetails({ match }) {
             setCurrentBook(data.docs.map(x => ({ ...x.data(), id: x.id, key: x.id })).find(x => x.id == match.params.id))
             setLikedUsersList(data.docs.map(x => ({ ...x.data(), id: x.id, key: x.id })).find(x => x.id == match.params.id).likedByUsers);
             setUnlikedUsersList(data.docs.map(x => ({ ...x.data(), id: x.id, key: x.id })).find(x => x.id == match.params.id).unlikedByUsers);
-
         };
         GetBookById();
     }, [like]);
@@ -49,7 +45,7 @@ function BookDetails({ match }) {
         // setLikedUsersList(currentBook.likedByUsers);
         setLike(like + 1)
 
-    }
+    };
 
     const unlikeBook = async (e) => {
         e.preventDefault();
@@ -60,9 +56,15 @@ function BookDetails({ match }) {
             likedByUsers: currentBook.likedByUsers.filter(x => x != user.email)
         }
         await updateDoc(bookDoc, fieldsToUpdate);
-        //setUnlikedUsersList(currentBook.unlikedByUsers);
         setLike(like + 1)
-    }
+    };
+
+    const deleteBook = async() => {
+
+        const bookDoc = doc(db, 'Books', bookId);
+        await deleteDoc(bookDoc);
+        history.push('/myBooks');
+    };
 
     return (
         <div className={style.wrapper}>
@@ -95,13 +97,18 @@ function BookDetails({ match }) {
                                     </button>
                                 </div>
                                 <div className={style.buttonWrapper}>
-                                    <a href={x.downloadFileUrl} className={style.downloadBtn} target="_blank" style={{ pointerEvents: user ? 'visible' : 'none' }}>Read Online
+                                    <a href={x.downloadFileUrl} className={style.downloadBtn} target="_blank" style={{ pointerEvents: user ? 'visible' : 'none' }}><i class="fas fa-book-open"></i>
                                     </a>
                                     {
                                         user?.uid == x.creatorId
                                             ?
-                                            <Link to={`/editBook/${match.params.id}`} className={style.editBtn} bookid={match.params.id} style={{ pointerEvents: user ? 'visible' : 'none' }}>Edit
-                                            </Link>
+                                            <div className={style.userSpecialBtn}>
+                                                <Link to={`/editBook/${match.params.id}`} className={style.editBtn} bookid={match.params.id} style={{ pointerEvents: user ? 'visible' : 'none' }}><i className="fas fa-edit"></i>
+                                                </Link>
+                                                <button className={style.deleteBtn} onClick={ () => {deleteBook()} }>
+                                                    <i className="fas fa-trash-alt"></i>
+                                                </button>
+                                            </div>
                                             :
                                             <div></div>
                                     }

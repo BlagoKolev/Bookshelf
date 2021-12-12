@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { db } from '../../firebase-config';
 import style from './EditBook.module.css';
 
-function EditBook({ match }) {
+function EditBook({ match, history}) {
 
     // console.log(match.params.bookId)
     const [book, setBook] = useState({});
@@ -39,7 +39,8 @@ function EditBook({ match }) {
             bookCoverUrl,
             review
         }
-        await updateDoc(bookDoc, fieldsToUpdate);  
+        await updateDoc(bookDoc, fieldsToUpdate); 
+        history.push('/myBooks'); 
     };
 
     return (
