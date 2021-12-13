@@ -3,7 +3,7 @@ import React from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase-config.js';
 import { Redirect } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { onSuccessNotify, onErrorNotify } from '../../Notifications/Notifications';
 import 'react-toastify/dist/ReactToastify.css';
 import { useContext } from 'react';
 import { UserContext } from '../../Helper/Context.js';
@@ -21,13 +21,7 @@ function Register({ history }) {
     //     console.log(formData.get('email'))
     // }
 
-    const registrationSuccessNotify = () => {
-        toast.success("Registration Successfull !", { position: toast.POSITION.TOP_CENTER });
-    };
-
-    const passwordsMatchNotify = () => {
-        toast.warning("Password and ConfirmPassword must be the same !", { position: toast.POSITION.TOP_CENTER });
-    };
+   
 
     // const validate = values => {
 
@@ -73,9 +67,9 @@ function Register({ history }) {
                 values.email,
                 values.password);
             history.push("/")
-            registrationSuccessNotify();
+            onSuccessNotify("Registration Successfull !");
         } catch (error) {
-            console.log(error.message);
+            onErrorNotify("Registration failed !");
         }
 
     }

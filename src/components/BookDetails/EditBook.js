@@ -4,13 +4,13 @@ import { db } from '../../firebase-config';
 import style from './EditBook.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { toast } from 'react-toastify';
+import { onSuccessNotify, onErrorNotify } from '../../Notifications/Notifications';
 
 function EditBook({ match, history }) {
 
     // console.log(match.params.bookId)
     const [book, setBook] = useState({});
-    
+
     let bookId = match.params.bookId;
 
     const booksRef = collection(db, "Books");
@@ -19,22 +19,22 @@ function EditBook({ match, history }) {
         const getBookById = async (bookId) => {
             let data = await getDocs(booksRef);
             setBook(data.docs.map(x => ({ ...x.data(), id: x.id })).find(x => x.id == bookId));
-            
+
         };
         getBookById(bookId);
     }, [])
 
-    const onSuccessEditNotify = () => toast.success("The book has been updated successfully !", {
-        position: toast.POSITION.TOP_CENTER
-    });
+    // const onSuccessEditNotify = () => toast.success("The book has been updated successfully !", {
+    //     position: toast.POSITION.TOP_CENTER
+    // });
 
-    const onErrorEditNotify = () => toast.error("Book update fail !", {
-        position: toast.POSITION.TOP_CENTER
-    });
+    // const onErrorEditNotify = () => toast.error("Book update fail !", {
+    //     position: toast.POSITION.TOP_CENTER
+    // });
 
     const initialValues = {
         title: '',
-        author:'',
+        author: '',
         bookCoverUrl: '',
         genre: '',
         review: ''
@@ -49,7 +49,7 @@ function EditBook({ match, history }) {
     })
 
     const onSubmit = async (values) => {
-       
+
         let bookDoc = doc(db, "Books", book.id);
 
         let fieldsToUpdate = {
@@ -63,13 +63,12 @@ function EditBook({ match, history }) {
         try {
             await updateDoc(bookDoc, fieldsToUpdate);
             history.push('/myBooks');
-            onSuccessEditNotify();
-        } catch(error) {
-            onErrorEditNotify();
+            onSuccessNotify("The book has been updated successfully !")
+        } catch (error) {
+            onErrorNotify("Book update fail !");
         }
     };
-    console.log(book.review)
-
+    
     return (
         <Formik initialValues={book || initialValues} validationSchema={validationSchema} onSubmit={onSubmit} enableReinitialize>
             <div className={style.editContainer}>

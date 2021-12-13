@@ -2,7 +2,7 @@ import style from './Upload.module.css';
 import { db, storage } from '../../firebase-config.js';
 import { getDownloadURL, ref, uploadBytesResumable } from '@firebase/storage';
 import { useState, useContext } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { onSuccessNotify, onErrorNotify } from '../../Notifications/Notifications';
 import { addDoc, collection } from '@firebase/firestore';
 import { withRouter } from 'react-router-dom';
 import { UserContext } from '../../Helper/Context';
@@ -49,7 +49,7 @@ function Upload({ history }) {
 
             setProgress(prog);
         },
-            (error) => onErrorUploadNotify(),
+            (error) => onErrorNotify("Upload fail !"),
             () => {
                 getDownloadURL(uploadTask.snapshot.ref) // Get download URL for uploaded file
                     .then((url) => {           //Create a book object and upload it to a Firebase
@@ -68,21 +68,11 @@ function Upload({ history }) {
 
                         addDoc(booksRef, newBook);
                     })
-                    .then(resp => onSuccessUploadNotify())
+                    .then(resp => onSuccessNotify("File uploaded successfully !"))
                     .then(resp => history.push("/myBooks"));
             }
         );
     };
-
-    toast.configure();
-
-    const onSuccessUploadNotify = () => toast.success("File uploaded successfully !", {
-        position: toast.POSITION.TOP_CENTER
-    });
-
-    const onErrorUploadNotify = () => toast.error("Upload fail !", {
-        position: toast.POSITION.TOP_CENTER
-    });
 
     const getFile = (e) => {
         setFile(e.target.files[0])

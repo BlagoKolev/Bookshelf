@@ -5,7 +5,7 @@ import style from './BookDetails.module.css';
 import { Link } from 'react-router-dom';
 //import { useContext } from 'react';
 import { UserContext } from '../../Helper/Context';
-import { toast, ToastContainer } from 'react-toastify';
+import { onSuccessNotify, onErrorNotify } from '../../Notifications/Notifications';
 
 function BookDetails({ match, history }) {
     // console.log(match.params);
@@ -66,22 +66,11 @@ function BookDetails({ match, history }) {
        try{
         await deleteDoc(bookDoc);
         history.push('/myBooks');
-        onSuccessDeleteNotify();
+        onSuccessNotify("The book has been successfully removed !");
        } catch (error) {
-        onErrorDeleteNotify();
+        onErrorNotify("Removing the book has fail !");
     }
     };
-
-    toast.configure();
-
-    const onSuccessDeleteNotify = () => toast.success("The book has been successfully removed !",{
-        position: toast.POSITION.TOP_CENTER
-      });
-
-      const onErrorDeleteNotify = () => toast.error("Removing the book has fail !",{
-        position: toast.POSITION.TOP_CENTER
-      });
-
 
     return (
         <div className={style.wrapper}>

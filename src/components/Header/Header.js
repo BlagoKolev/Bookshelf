@@ -1,38 +1,17 @@
 import style from './Header.module.css';
-import { useState } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase-config';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { collection, getDocs } from '@firebase/firestore';
-import { db } from '../../firebase-config.js'
+import { onSuccessNotify } from '../../Notifications/Notifications';
+//import 'react-toastify/dist/ReactToastify.css';
 import HeaderSearchBar from '../Search/HeaderSearchBar';
 
 function Header({ username, isAuthenticated }) {
 
-    //const [books, setBooks] = useState([]);
-    // const [searchWord, setSearchWord] = useState([]);
-
-    const signOutNotify = () => {
-        toast.success("Successfully Signed-out !", { position: toast.POSITION.TOP_CENTER });
-    };
-
     const onSignOut = async (e) => {
         await signOut(auth)
-        signOutNotify();
+        onSuccessNotify("Successfully Signed-out !");
     };
-
-    // const searchBookByTitle = async (e) => {
-
-    //     const booksRef = collection(db, "Books");
-    //     const data = await getDocs(booksRef);
-
-    //     setBooks(data.docs.map(x => ({ ...x.data(), id: x.id })).filter(x => x.title.toLowerCase().includes(searchWord)));
-
-
-    //     console.log('in Header:' +books)
-    // }
 
     return (
         <header className={style.header}>

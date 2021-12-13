@@ -15,7 +15,6 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
 
 function Main() {
    
-    //const {user, setUser} = useContext(UserContext);
     const context = useContext(UserContext);
     let user = context.user;
     //console.log(user?.uid)

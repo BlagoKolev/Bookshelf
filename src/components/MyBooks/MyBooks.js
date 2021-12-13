@@ -7,10 +7,6 @@ import { UserContext } from '../../Helper/Context.js';
 import { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 
-
-
-
-
 function MyBooks(props) {
 
     const [books, setBooks] = useState([]);

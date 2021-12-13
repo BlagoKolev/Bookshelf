@@ -2,7 +2,7 @@ import style from './Login.module.css';
 import { useState, useContext } from 'react';
 import { auth } from '../../firebase-config.js';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { ToastContainer, toast } from 'react-toastify';
+import { onSuccessNotify, onErrorNotify } from '../../Notifications/Notifications';
 import 'react-toastify/dist/ReactToastify.css';
 import { UserContext } from '../../Helper/Context.js'; 
 import { Redirect } from 'react-router';
@@ -15,16 +15,6 @@ function Login({ history }) {
     const context = useContext(UserContext);
     let user = context.user;
 
-    toast.configure();
-
-    const onSuccessLoginNotify = () => toast.success("Successfully logged !",{
-        position: toast.POSITION.TOP_CENTER
-      });
-
-      const onErrorLoginNotify = () => toast.error("Wrong username or password !",{
-        position: toast.POSITION.TOP_CENTER
-      });
-
     const onLogin = async (e) => {
 
         e.preventDefault();
@@ -32,9 +22,9 @@ function Login({ history }) {
         try {
             let user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
             history.push("/");
-            onSuccessLoginNotify();
+            onSuccessNotify("Successfully logged !");
         } catch (error) {
-            onErrorLoginNotify();
+            onErrorNotify("Wrong username or password !");
         }
     };
 
