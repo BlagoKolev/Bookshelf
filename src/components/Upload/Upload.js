@@ -13,11 +13,11 @@ import * as Yup from 'yup';
 function Upload({ history }) {
 
     const [progress, setProgress] = useState(0);
-    const [title, setTitle] = useState("");
-    const [author, setAuthor] = useState("");
-    const [review, setReview] = useState("");
-    const [bookCoverUrl, setbookCoverUrl] = useState("");
-    const [genre, setGenre] = useState("");
+    // const [title, setTitle] = useState("");
+    // const [author, setAuthor] = useState("");
+    // const [review, setReview] = useState("");
+    // const [bookCoverUrl, setbookCoverUrl] = useState("");
+    // const [genre, setGenre] = useState("");
     const [file, setFile] = useState({});
 
     const context = useContext(UserContext);
@@ -58,7 +58,7 @@ function Upload({ history }) {
                             author: values.author,
                             review: values.review,
                             bookCoverUrl: values.bookCoverUrl,
-                            genre,
+                            genre: values.genre,
                             downloadFileUrl: url,
                             creatorId: user.uid,
                             creator: user.email,

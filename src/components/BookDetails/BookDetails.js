@@ -43,7 +43,7 @@ function BookDetails({ match, history }) {
             unlikedByUsers: currentBook.unlikedByUsers.filter(x => x != user.email)
         }
         await updateDoc(bookDoc, fieldsToUpdate);
-        // setLikedUsersList(currentBook.likedByUsers);
+      
         setLike(like + 1)
 
     };
