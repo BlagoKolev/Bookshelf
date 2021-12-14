@@ -24,14 +24,6 @@ function EditBook({ match, history }) {
         getBookById(bookId);
     }, [])
 
-    // const onSuccessEditNotify = () => toast.success("The book has been updated successfully !", {
-    //     position: toast.POSITION.TOP_CENTER
-    // });
-
-    // const onErrorEditNotify = () => toast.error("Book update fail !", {
-    //     position: toast.POSITION.TOP_CENTER
-    // });
-
     const initialValues = {
         title: '',
         author: '',

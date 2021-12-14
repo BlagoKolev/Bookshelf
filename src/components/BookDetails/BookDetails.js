@@ -44,8 +44,7 @@ function BookDetails({ match, history }) {
         }
         await updateDoc(bookDoc, fieldsToUpdate);
       
-        setLike(like + 1)
-
+        setLike(like + 1);
     };
 
     const unlikeBook = async (e) => {
@@ -106,12 +105,12 @@ function BookDetails({ match, history }) {
                                     <a href={x.downloadFileUrl} className={style.downloadBtn} target="_blank" style={{ pointerEvents: user ? 'visible' : 'none' }}><i className="far fa-eye fa-lg"></i>
                                     </a>
                                     {
-                                        user?.uid == x.creatorId
+                                        user?.uid === x.creatorId && user
                                             ?
                                             <div className={style.userSpecialBtn}>
                                                 <Link to={`/editBook/${match.params.id}`} className={style.editBtn} bookid={match.params.id} style={{ pointerEvents: user ? 'visible' : 'none' }}><i className="fas fa-edit fa-lg"></i>
                                                 </Link>
-                                                <button className={style.deleteBtn} onClick={ () => {deleteBook()} }>
+                                                <button className={style.deleteBtn} onClick={ () => {deleteBook()}} style={{ pointerEvents: user ? 'visible' : 'none' }}>
                                                     <i className="fas fa-trash-alt fa-lg"></i>
                                                 </button>
                                             </div>
