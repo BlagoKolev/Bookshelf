@@ -9,8 +9,9 @@
 }
 
 .wrapper {
-    background-color: #E1DCC5;
     display: flex;
-    min-width: 1349px;
+    background-color: #E1DCC5;
+    width: 100%;
     justify-content: center;
 }
+
