@@ -46,10 +46,10 @@
     color: white;
 }
 
-.navbar {
+/* .navbar {
     z-index: 1;
     position: relative;
-}
+} */
 
 .username {
     color:lightgray;
@@ -70,10 +70,11 @@
         margin-top: 25px;
     }
 
-    .navbar {
+    .navbarSearch {
         margin-top: 25px;
         width: 30%;
         padding-right: 50px;
+       
     }
 
     .headerNav {
@@ -122,7 +123,7 @@
        margin-right: 0;
     }
 
-    .navbar {
+    .navbarSearch {
         margin-left: 50px;
     }
    

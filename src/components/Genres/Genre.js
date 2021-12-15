@@ -4,7 +4,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import BookCard from '../BookCard/BookCard.js'
 
-function ActionAndAdventure({ passedGenre }) {
+function Genre({ passedGenre }) {
 
     const [books, setBooks] = useState([]);
     const bookRef = collection(db, "Books");
@@ -26,4 +26,4 @@ function ActionAndAdventure({ passedGenre }) {
     )
 }
 
-export default ActionAndAdventure;
+export default Genre;

@@ -17,7 +17,7 @@ function Header({ username, isAuthenticated }) {
         <header className={style.header}>
             <Link to="/" className={style.headerLogo}>BookShelf</Link>               
           
-                <HeaderSearchBar style={{ zIndex: 1 }} className={style.navbar} />
+                <HeaderSearchBar style={{ zIndex: 1 }} className={style.navbarSearch} />
 
             <nav className={style.headerNav}>
                 <ul className={style.headerNavUl}>
