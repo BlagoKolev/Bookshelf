@@ -21,6 +21,7 @@
     background-color: #333333;
     justify-content: center;
     border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 15px 20px;
 }
 
 .input {
