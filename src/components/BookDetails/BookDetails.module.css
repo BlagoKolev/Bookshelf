@@ -1,6 +1,5 @@
 .wrapper {
     display: flex;
-   
 }
 
 .details {
@@ -186,4 +185,20 @@
     color: white;
     background-color: #C40106;
     transform: scale(1.2);
+}
+
+
+@media screen and (max-width: 600px) {
+    
+    .wrapper {
+        margin-bottom: 30px;
+    }
+    .detailsContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .leftSide {
+        margin-left: 0;
+    }
 }
