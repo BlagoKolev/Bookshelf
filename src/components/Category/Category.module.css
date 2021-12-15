@@ -3,6 +3,7 @@
     margin:0 50px;
     justify-content: center;
     background-color: #F3EDD7;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 15px 20px;
 }
 
 @media screen and (max-width: 900px) {

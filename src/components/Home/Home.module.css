@@ -7,5 +7,6 @@
 
 .categoryLink {
     text-decoration: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 15px 20px;
 }
 
