@@ -1,6 +1,8 @@
 .category {
     display: flex;
-    margin:0 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
     justify-content: center;
     background-color: #F3EDD7;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 15px 20px;
