@@ -22,6 +22,7 @@ function Home() {
 
     return (
         <section className={style.section}>
+            <title>Home</title>
             <CategoryTitle>
                 <Link to="/actionAndAdventure" className={style.categoryLink}>Action and Adventure</Link>
             </CategoryTitle>

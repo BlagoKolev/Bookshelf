@@ -97,6 +97,7 @@ function Upload({ history }) {
     return (
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
             <div className={style.uploadContainer}>
+                <title>Upload book</title>
                 <Form className={style.form}>
                     <h1 className={style.header}>Upload your new book</h1>
                     <div className={style.fields}>

@@ -31,6 +31,7 @@ function Login({ history }) {
     
     return (
         <div className={style.loginContainer}>
+            <title>Log-in</title>
         {
             !user 
             ?

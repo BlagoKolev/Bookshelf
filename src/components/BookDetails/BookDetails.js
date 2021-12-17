@@ -73,6 +73,7 @@ function BookDetails({ match, history }) {
 
     return (
         <div className={style.wrapper}>
+            <title>Details</title>
             {
                 books.filter(x => x.id == match.params.id).map(x => {
 

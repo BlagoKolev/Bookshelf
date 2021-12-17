@@ -83,6 +83,7 @@ function Register({ history }) {
     return (
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
             <div className={style.registerContainer} >
+            <title>Register</title>
                 {!user ?
                     <Form className={style.register} >
                         <h2 className={style.registerTitle}>Create new account</h2>

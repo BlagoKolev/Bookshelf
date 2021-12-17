@@ -64,6 +64,7 @@ function EditBook({ match, history }) {
     return (
         <Formik initialValues={book || initialValues} validationSchema={validationSchema} onSubmit={onSubmit} enableReinitialize>
             <div className={style.editContainer}>
+            <title>Edit book</title>
                 <h3 className={style.text}>Edit your book</h3>
                 <Form className={style.form} >
                     <label className={style.label} htmlFor="title">Title:

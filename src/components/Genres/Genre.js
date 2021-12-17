@@ -19,6 +19,7 @@ function Genre({ passedGenre }) {
 
     return (
         <div className={style.wrapper}>
+            <title>{passedGenre} books</title>
             <div className={style.category}>
                 {books.map(x => <BookCard key={x.id} details={x} />)}
             </div>

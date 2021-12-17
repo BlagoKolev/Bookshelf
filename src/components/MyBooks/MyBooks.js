@@ -28,6 +28,7 @@ function MyBooks(props) {
 
     return (
         <div className={style.wrapper}>
+            <title>My books</title>
             <div className={style.booksWrapper}>
                 {
                     books.length > 0
