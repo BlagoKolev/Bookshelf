@@ -6,8 +6,13 @@ function BookCard(props) {
     return (
         <div className={style.container}>
             <div className={style.imageContainer}>
-                <img className={style.image} src={props.details.bookCoverUrl}></img>
-                {/* <img className={style.image} src="https://cdn.picpng.com/book/book-view-30965. */}
+                {
+                    props.details.bookCoverUrl 
+                    ? <img className={style.image} src={props.details.bookCoverUrl}></img>
+                    : <img className={style.image} src="https://cdn.picpng.com/book/book-view-30965.png" />
+                }
+                
+                
             </div>
             {props.details.title.length > 25
                 ? <div>Title: {props.details.title.slice(0, 25)} ...</div>

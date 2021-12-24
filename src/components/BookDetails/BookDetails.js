@@ -3,17 +3,13 @@ import { db } from '../../firebase-config.js'
 import { collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
 import style from './BookDetails.module.css';
 import { Link } from 'react-router-dom';
-//import { useContext } from 'react';
-import { UserContext } from '../../Helper/Context';
+import { UserContext } from '../../Context/Context.js';
 import { onSuccessNotify, onErrorNotify } from '../../Notifications/Notifications';
 
 function BookDetails({ match, history }) {
     // console.log(match.params);
     let bookId = match.params.id;
-    let context = useContext(UserContext);
-    //console.log(context.user);
-    let user = context.user;
-
+    let {user} = useContext(UserContext);
 
     const [books, setBooks] = useState([]);
     const [currentBook, setCurrentBook] = useState({});
@@ -27,9 +23,9 @@ function BookDetails({ match, history }) {
         const GetBookById = async () => {
             const data = await getDocs(booksRef);
             setBooks(data.docs.map(x => ({ ...x.data(), id: x.id, key: x.id })));
-            setCurrentBook(data.docs.map(x => ({ ...x.data(), id: x.id, key: x.id })).find(x => x.id == match.params.id))
-            setLikedUsersList(data.docs.map(x => ({ ...x.data(), id: x.id, key: x.id })).find(x => x.id == match.params.id).likedByUsers);
-            setUnlikedUsersList(data.docs.map(x => ({ ...x.data(), id: x.id, key: x.id })).find(x => x.id == match.params.id).unlikedByUsers);
+            setCurrentBook(data.docs.map(x => ({ ...x.data(), id: x.id, key: x.id })).find(x => x.id == bookId))
+            setLikedUsersList(data.docs.map(x => ({ ...x.data(), id: x.id, key: x.id })).find(x => x.id == bookId).likedByUsers);
+            setUnlikedUsersList(data.docs.map(x => ({ ...x.data(), id: x.id, key: x.id })).find(x => x.id == bookId).unlikedByUsers);
         };
         GetBookById();
     }, [like]);

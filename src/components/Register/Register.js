@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 import { onSuccessNotify, onErrorNotify } from '../../Notifications/Notifications';
 import 'react-toastify/dist/ReactToastify.css';
 import { useContext } from 'react';
-import { UserContext } from '../../Helper/Context.js';
+import { UserContext } from '../../Context/Context.js';
 import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
 

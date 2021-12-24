@@ -12,7 +12,7 @@ function Genre({ passedGenre }) {
     useEffect(() => {
         const getBooks = async () => {
             let data = await getDocs(bookRef);
-            setBooks(data.docs.map(x => ({ ...x.data(), id: x.id })).filter(x => x.genre == passedGenre)); console.log("Mount")
+            setBooks(data.docs.map(x => ({ ...x.data(), id: x.id })).filter(x => x.genre == passedGenre)); 
         }
         getBooks();
     }, []);

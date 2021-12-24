@@ -2,7 +2,6 @@ import style from './Home.module.css';
 import Category from '../Category/Category.js';
 import CategoryTitle from '../Category/CategoryTitle.js';
 import { useState, useEffect } from 'react';
-//import * as BooksService from '../../services/bookServices.js'
 import { db } from '../../firebase-config.js'
 import { collection, getDocs } from 'firebase/firestore';
 import { Link, Route } from 'react-router-dom';

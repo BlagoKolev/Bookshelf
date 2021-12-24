@@ -5,7 +5,7 @@ import { useState, useContext } from 'react';
 import { onSuccessNotify, onErrorNotify } from '../../Notifications/Notifications';
 import { addDoc, collection } from '@firebase/firestore';
 import { withRouter } from 'react-router-dom';
-import { UserContext } from '../../Helper/Context';
+import { UserContext } from '../../Context/Context';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -13,11 +13,6 @@ import * as Yup from 'yup';
 function Upload({ history }) {
 
     const [progress, setProgress] = useState(0);
-    // const [title, setTitle] = useState("");
-    // const [author, setAuthor] = useState("");
-    // const [review, setReview] = useState("");
-    // const [bookCoverUrl, setbookCoverUrl] = useState("");
-    // const [genre, setGenre] = useState("");
     const [file, setFile] = useState({});
 
     const context = useContext(UserContext);

@@ -22,7 +22,6 @@ function HeaderSearchBar() {
         setSearchWord("");
     }
 
-
     return (
         <div className={style.searchBar}>
             <div className={style.searchFieldContainer}>
