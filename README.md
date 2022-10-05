@@ -38,3 +38,14 @@
 - Firebase-Storage - to store files
 
 ## :link: [Official Application Link](https://bookshelf-3c638.web.app/)
+---
+## :camera: Screenshots
+### Home page
+![Home](https://user-images.githubusercontent.com/64737227/194037035-46b8d9d3-a764-46a9-b084-2a28b7712ba9.png)
+### Users books collection
+![myBooks](https://user-images.githubusercontent.com/64737227/194037057-4bf31879-b2c6-4f5d-be79-f4d1846b9c5b.png)
+### Book details
+![Details](https://user-images.githubusercontent.com/64737227/194037077-dec8f6c2-461a-4099-8fc1-848bd66cddb5.png)
+### Upload book page
+![Upload](https://user-images.githubusercontent.com/64737227/194037093-bb4c908b-6c10-41d6-b10e-e80441215328.png)
+
